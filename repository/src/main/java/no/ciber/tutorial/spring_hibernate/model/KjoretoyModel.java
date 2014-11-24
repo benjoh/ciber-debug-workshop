@@ -1,16 +1,14 @@
 package no.ciber.tutorial.spring_hibernate.model;
 
-public class Kjoretoy {
+public class KjoretoyModel {
     public String understellsnummer;
     public String registreringsnummer;
     public String merke;
     public String modell;
     public String registreringsaar;
-    public Person eier;
+    public PersonModel eier;
 
-    public String getUnderstellsnummer() {
-        return understellsnummer;
-    }
+    public String getUnderstellsnummer() { return understellsnummer; }
 
     public void setUnderstellsnummer(String understellsnummer) {
         this.understellsnummer = understellsnummer;
@@ -48,11 +46,11 @@ public class Kjoretoy {
         this.registreringsaar = registreringsaar;
     }
 
-    public Person getEier() {
+    public PersonModel getEier() {
         return eier;
     }
 
-    public void setEier(Person eier) {
+    public void setEier(PersonModel eier) {
         this.eier = eier;
     }
 }

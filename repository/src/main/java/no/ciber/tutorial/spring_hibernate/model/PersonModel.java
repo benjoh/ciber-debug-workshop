@@ -3,15 +3,15 @@ package no.ciber.tutorial.spring_hibernate.model;
 import java.time.LocalDate;
 import java.util.List;
 
-public class Person {
+public class PersonModel {
 
     private Long id;
     private String fornavn;
     private String mellomnavn;
     private String etternavn;
     private LocalDate fodelsdag;
-    private Adresse adresse;
-    private List<Kjoretoy> kjoretoy;
+    private AdresseModel adresse;
+    private List<KjoretoyModel> kjoretoy;
 
     public String getFornavn() {
         return fornavn;
@@ -53,19 +53,19 @@ public class Person {
         this.id = id;
     }
 
-    public Adresse getAdresse() {
+    public AdresseModel getAdresse() {
         return adresse;
     }
 
-    public void setAdresse(Adresse adresse) {
+    public void setAdresse(AdresseModel adresse) {
         this.adresse = adresse;
     }
 
-    public List<Kjoretoy> getKjoretoy() {
+    public List<KjoretoyModel> getKjoretoy() {
         return kjoretoy;
     }
 
-    public void setKjoretoy(List<Kjoretoy> kjoretoy) {
+    public void setKjoretoy(List<KjoretoyModel> kjoretoy) {
         this.kjoretoy = kjoretoy;
     }
 }

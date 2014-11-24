@@ -1,11 +1,11 @@
 package no.ciber.tutorial.spring_hibernate.model;
 
-public class Adresse {
+public class AdresseModel {
 
     public Long id;
     public String linje1;
     public String linje2;
-    public String lunje3;
+    public String linje3;
     public Integer postnummer;
     public String poststed;
     public String land;
@@ -34,12 +34,12 @@ public class Adresse {
         this.linje2 = linje2;
     }
 
-    public String getLunje3() {
-        return lunje3;
+    public String getLinje3() {
+        return linje3;
     }
 
-    public void setLunje3(String lunje3) {
-        this.lunje3 = lunje3;
+    public void setLinje3(String linje3) {
+        this.linje3 = linje3;
     }
 
     public Integer getPostnummer() {
@@ -57,4 +57,8 @@ public class Adresse {
     public void setPoststed(String poststed) {
         this.poststed = poststed;
     }
+
+    public Long getId() { return id; }
+
+    public void setId(Long id) { this.id = id; }
 }
