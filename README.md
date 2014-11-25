@@ -29,3 +29,22 @@ Aktiver også komponent-skanning for pakken [no.ciber.tutorial.spring_hibernate.
 ```
 Start applikasjonen ved å kjøre EmbeddedJetty klassen
 Gå til [http://localhost:8080/](http://localhost:8080/) for å verifisere at applikasjonen kjører. (Skal vise Hello World)
+
+Oppgave 3 - Aktiver controller-klassene og endepunktene definert i klassene.
+----------------------------------------------------------------------------
+Modifiser kontroller-klassene i [no.ciber.tutorial.spring_hibernate.controllers](), 
+slik at de blir plukket opp av komponent-skanningen som ble aktivert i oppgave 2.
+Metodene i controller-klassene representerer "endepunkt" som skal kunne nås på ulike urler. 
+Urlene er beskrevet i kommentarer over hver metode. Aktiver endepunktene slik at de kan nås på riktig url.
+
+*hint:*
+``` java
+@Controller
+public class Controller{
+    @RequestMapping(value="url", method = GET)
+    public String endpoint(){
+        return "view";
+    }
+}  
+```
+
