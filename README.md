@@ -47,4 +47,5 @@ public class Controller{
     }
 }  
 ```
+Naviger til ulike urler på [http://localhost:8080/](http://localhost:8080/) for å verifisere at det du har gjort funker.
 
