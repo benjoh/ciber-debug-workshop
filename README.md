@@ -4,7 +4,10 @@ Ciber Spring-Hibernate tutorial
 Dette repositoriet inneholder en kode til en applikasjon som brukes i Cibers Spring-Hibernate tutorial.
 Applikasjonen er skrevet i Java 8 og bygger vha. Maven. Det er en veldig enkelt 3-lags applikasjon 
 som man gjennom tutorialen skal modifisere for å få en helt basic innføring i Spring og Hibernate.
-Hvert lag i applikasjonen er representert som en egen modul (jar).
+Hvert lag i applikasjonen er representert som en egen modul (jar).  
+
+Oppgave 1-XX er oppgaver knyttet til Spring.
+Oppgave XX-YY er oppgaver knyttet til Hibernate. 
 
 Oppgave 1 - Sett opp enkel spring-context for web-modulen.
 ----------------------------------------------------------
@@ -27,7 +30,7 @@ Aktiver også komponent-skanning for pakken [no.ciber.tutorial.spring_hibernate.
 @Configuration  
 @ComponentScan  
 ```
-Start applikasjonen ved å kjøre EmbeddedJetty klassen
+Start applikasjonen ved å kjøre EmbeddedJetty klassen. 
 Gå til [http://localhost:8080/](http://localhost:8080/) for å verifisere at applikasjonen kjører. (Skal vise Hello World)
 
 Oppgave 3 - Aktiver controller-klassene og endepunktene definert i klassene.
@@ -47,5 +50,5 @@ public class Controller{
     }
 }  
 ```
-Naviger til ulike urler på [http://localhost:8080/](http://localhost:8080/) for å verifisere at det du har gjort funker.
+Naviger til de ulike urlene på [http://localhost:8080/](http://localhost:8080/) for å verifisere at det du har gjort funker.
 
