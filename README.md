@@ -1,11 +1,11 @@
-Ciber Spring-Hibernate tutorial
-===============================
+#Ciber Spring-Hibernate tutorial
 
-Krav
-----
+
+##Krav
 * [Java (JDK) 8](http://www.oracle.com/technetwork/java/javase/downloads/index.html)
 * [Apache Maven 3.x](http://maven.apache.org/)
 
+##Intro
 Dette repositoriet inneholder en kode til en applikasjon som brukes i Cibers Spring-Hibernate tutorial.
 Applikasjonen er skrevet i Java 8 og bygger vha. Maven. Det er en veldig enkelt 3-lags applikasjon 
 som man gjennom tutorialen skal modifisere for å få en helt basic innføring i Spring og Hibernate.
