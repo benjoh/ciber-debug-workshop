@@ -9,9 +9,16 @@ Hvert lag i applikasjonen er representert som en egen modul (jar).
 Oppgave 1-XX er oppgaver knyttet til Spring.
 Oppgave XX-YY er oppgaver knyttet til Hibernate. 
 
+Applikasjonen kan startes ved og kjøre [no.ciber.tutorial.spring_hibernate.EmbeddedJetty]() klassen fra en ide. 
+Eventuelt så kan man bygge og starte applikasjonen med kommandoene:
+```sh
+mvn clean package
+java -jar web\target\web-1.0-SNAPSHOT.jar
+```
+
 Oppgave 1 - Sett opp enkel spring-context for web-modulen.
 ----------------------------------------------------------
-Prosjektene legger opp til å benytte java-basert konfigurasjon.  
+Spring kan benytte xml-basert eller java-basert konfigurasjon. Prosjektene i denne tutorialen legger opp til å benytte java-basert konfigurasjon.  
 Modifiser WebConfig.java i web-modulen slik at de plukkes opp av Spring og aktiver SpringWebMVC.
 
 *hint:*
@@ -24,6 +31,7 @@ Oppgave 2 - Benytt komponent-skanning for å finne controllere.
 --------------------------------------------------------------
 Modifiser AppConfig.java i web-modulen slik at den blir aktivert som en konfigurasjonsfil. 
 Aktiver også komponent-skanning for pakken [no.ciber.tutorial.spring_hibernate.config](https://github.com/peteabre/spring-hibernate-tutorial/tree/master/web/src/main/java/no/ciber/tutorial/spring_hibernate/config)
+Klasser som blir plukket opp av komponent-skanningen blir registrert i IOC-kontaineren og kan senere injiseres i andre klasser ved behov.
 
 *hint:*
 ``` java
@@ -33,14 +41,51 @@ Aktiver også komponent-skanning for pakken [no.ciber.tutorial.spring_hibernate.
 Start applikasjonen ved å kjøre EmbeddedJetty klassen. 
 Gå til [http://localhost:8080/](http://localhost:8080/) for å verifisere at applikasjonen kjører. (Skal vise Hello World)
 
-Oppgave 3 - Aktiver controller-klassene og endepunktene definert i klassene.
-----------------------------------------------------------------------------
-Modifiser kontroller-klassene i [no.ciber.tutorial.spring_hibernate.controllers](), 
-slik at de blir plukket opp av komponent-skanningen som ble aktivert i oppgave 2.
-Metodene i controller-klassene representerer "endepunkt" som skal kunne nås på ulike urler. 
-Urlene er beskrevet i kommentarer over hver metode. Aktiver endepunktene slik at de kan nås på riktig url.
+Oppgave 3 - Konfigurer opp service-laget i applikasjonen
+--------------------------------------------------------
+Man kan også benytte komponentscanning for å finne tjenester. Denne oppgaven skal derimot løses ved at man manuelt konfigurere opp et par av tjenestene.
+Aktiver SimpleServiceConfig som en konfigurasjonsfil. Deretter så må man tilgjengeligjøre/registrere hver tjeneste som spring-beans i IOC-kontaineren.
 
 *hint:*
+``` java
+@Bean  
+public Service method(){
+    return new ServiceImpl()
+}
+```
+Når klassene er registrert i IOC-kontaineren kan de injiseres i andre klasser ved behov.
+
+Oppgave 4 - Aktiver controller-klassene og endepunktene definert i klassene.
+----------------------------------------------------------------------------
+Modifiser kontroller-klassen [AdresseController]() i [no.ciber.tutorial.spring_hibernate.controllers](), 
+slik at den blir plukket opp av komponent-skanningen som ble aktivert i oppgave 2.
+Metodene i controller-klassen representerer "endepunkt" som skal kunne nås på ulike urler. 
+Urlene er beskrevet i kommentarer over hver metode. Aktiver endepunktene slik at de kan nås på riktig url.
+Kontrolleren benytter også en tjeneste for å hente ut data. Denne tjenesten må injiseres i kontrolleren. 
+Man kan da benytte setter-injisering eller konstruktør-injisering. Gjerne prøv begge deler (ikke samtidig). 
+
+*hint for konstruktør-injisering*
+``` java
+public class Controller{
+    private Service service
+    @Autowired
+    public Controller(Service service){
+        this.service = service;
+    }
+}  
+```
+
+*hint for setter-injisering*
+``` java
+public class Controller{
+    private Service service
+    public void setService(Service service){
+        this.service = service;
+    }
+}  
+```
+
+*hint for endepunkt eksponering:*
 ``` java
 @Controller
 public class Controller{
@@ -50,5 +95,5 @@ public class Controller{
     }
 }  
 ```
-Naviger til de ulike urlene på [http://localhost:8080/](http://localhost:8080/) for å verifisere at det du har gjort funker.
+Start applikasjonen på nytt og naviger til de ulike urlene på [http://localhost:8080/](http://localhost:8080/) for å verifisere at eksponeringen du har gjort funker.
 
