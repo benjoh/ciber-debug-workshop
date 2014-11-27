@@ -79,6 +79,7 @@ public class Controller{
 ``` java
 public class Controller{
     private Service service
+    @Autowired
     public void setService(Service service){
         this.service = service;
     }
