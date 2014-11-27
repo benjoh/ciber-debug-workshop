@@ -9,11 +9,11 @@ Hvert lag i applikasjonen er representert som en egen modul (jar).
 Oppgave 1-XX er oppgaver knyttet til Spring.
 Oppgave XX-YY er oppgaver knyttet til Hibernate. 
 
-Applikasjonen kan startes ved og kjøre [no.ciber.tutorial.spring_hibernate.EmbeddedJetty]() klassen fra en ide. 
-Eventuelt så kan man bygge og starte applikasjonen med kommandoene:
+Applikasjonen kan startes ved og kjøre [EmbeddedJetty](https://github.com/peteabre/spring-hibernate-tutorial/blob/master/web/src/main/java/no/ciber/tutorial/spring_hibernate/EmbeddedJetty.java) 
+-klassen fra en ide.Eventuelt så kan man bygge og starte applikasjonen med kommandoene:
 ```sh
 mvn clean package
-java -jar web\target\web-1.0-SNAPSHOT.jar
+java -jar web/target/web-1.0-SNAPSHOT.jar
 ```
 
 Oppgave 1 - Sett opp enkel spring-context for web-modulen.
@@ -57,7 +57,7 @@ Når klassene er registrert i IOC-kontaineren kan de injiseres i andre klasser v
 
 Oppgave 4 - Aktiver controller-klassene og endepunktene definert i klassene.
 ----------------------------------------------------------------------------
-Modifiser kontroller-klassen [AdresseController]() i [no.ciber.tutorial.spring_hibernate.controllers](), 
+Modifiser kontroller-klassen [no.ciber.tutorial.spring_hibernate.controllers.AdresseController](https://github.com/peteabre/spring-hibernate-tutorial/blob/master/web/src/main/java/no/ciber/tutorial/spring_hibernate/controllers/AdresseController.java), 
 slik at den blir plukket opp av komponent-skanningen som ble aktivert i oppgave 2.
 Metodene i controller-klassen representerer "endepunkt" som skal kunne nås på ulike urler. 
 Urlene er beskrevet i kommentarer over hver metode. Aktiver endepunktene slik at de kan nås på riktig url.
