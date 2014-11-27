@@ -1,13 +1,19 @@
 Ciber Spring-Hibernate tutorial
 ===============================
 
+Krav
+----
+* [Java Platform (JDK) 8](http://www.oracle.com/technetwork/java/javase/downloads/index.html)
+* [Apache Maven 3.x](http://maven.apache.org/)
+
 Dette repositoriet inneholder en kode til en applikasjon som brukes i Cibers Spring-Hibernate tutorial.
 Applikasjonen er skrevet i Java 8 og bygger vha. Maven. Det er en veldig enkelt 3-lags applikasjon 
 som man gjennom tutorialen skal modifisere for å få en helt basic innføring i Spring og Hibernate.
 Hvert lag i applikasjonen er representert som en egen modul (jar).  
 
-Oppgave 1-XX er oppgaver knyttet til Spring.
-Oppgave XX-YY er oppgaver knyttet til Hibernate. 
+Oppgave 1-5 er enkle oppgaver knyttet til Springs IOC-kontainer og bruken av denne via SpringWebMVC.
+Oppgave 6-10 er oppgaver knyttet til Hibernate.
+Oppgave 11-15 er oppgaver knyttet til mer avansert bruk av SpringWebMVC
 
 Applikasjonen kan startes ved og kjøre [EmbeddedJetty](https://github.com/peteabre/spring-hibernate-tutorial/blob/master/web/src/main/java/no/ciber/tutorial/spring_hibernate/EmbeddedJetty.java) 
 -klassen fra en ide.Eventuelt så kan man bygge og starte applikasjonen med kommandoene:
@@ -86,7 +92,7 @@ public class Controller{
 }  
 ```
 
-*hint for endepunkt eksponering:*
+*hint for endepunkt-eksponering:*
 ``` java
 @Controller
 public class Controller{
@@ -109,3 +115,6 @@ Injiser så verdien av propertien som er definert i filen i [IndexController]() 
 @Value("${property.name}")
 private String message;
 ```
+
+Oppgave 6 - Kofigurer opp en datasource
+---------------------------------------

@@ -49,7 +49,7 @@ public class EmbeddedJetty {
         handler.setContextPath(CONTEXT_PATH);
         handler.addServlet(new ServletHolder(new DispatcherServlet(context)), BASE_URL);
         handler.addEventListener(new ContextLoaderListener(context));
-        handler.setResourceBase(new ClassPathResource("webapp").getURI().toString());
+        handler.setResourceBase(new ClassPathResource("").getURI().toString());
         return handler;
     }
 
