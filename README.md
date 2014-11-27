@@ -22,8 +22,7 @@ mvn clean package
 java -jar web/target/web-1.0-SNAPSHOT.jar
 ```
 
-Oppgave 1 - Sett opp enkel spring-context for web-modulen.
-----------------------------------------------------------
+###Oppgave 1 - Sett opp enkel spring-context for web-modulen.
 Spring kan benytte xml-basert eller java-basert konfigurasjon. Prosjektene i denne tutorialen legger opp til å benytte java-basert konfigurasjon.  
 Modifiser WebConfig.java i web-modulen slik at de plukkes opp av Spring og aktiver SpringWebMVC.
 
@@ -33,8 +32,7 @@ Modifiser WebConfig.java i web-modulen slik at de plukkes opp av Spring og aktiv
 @EnableWebMvc  
 ```
 
-Oppgave 2 - Benytt komponent-skanning for å finne controllere.
---------------------------------------------------------------
+####Oppgave 2 - Benytt komponent-skanning for å finne controllere.
 Modifiser AppConfig.java i web-modulen slik at den blir aktivert som en konfigurasjonsfil. 
 Aktiver også komponent-skanning for pakken [no.ciber.tutorial.spring_hibernate.config](https://github.com/peteabre/spring-hibernate-tutorial/tree/master/web/src/main/java/no/ciber/tutorial/spring_hibernate/config)
 Klasser som blir plukket opp av komponent-skanningen blir registrert i IOC-kontaineren og kan senere injiseres i andre klasser ved behov.
