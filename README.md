@@ -103,3 +103,8 @@ Oppgave 5 - Sett opp støtte for injisering av properties fra properties-fil.
 Spring støtter injisering av verdier fra properties-filer. I konfigurasjonsfilen [PropertySourceConfig]() er laget et begynnende konfigurasjonselement for dette.
 Legg inn lokasjonen til [config.properties]() i [PropertySourcesPlaceholderConfigurer]() som en [ClassPathResource](). Og aktiver konfigurasjonselementet vha. riktige annotasjoner.
 Injiser så verdien av propertien som er definert i filen i [IndexController]() slik at verdien av propertien kommer opp når man går til [http://localhost:8080](http://localhost:8080)
+*hint:*
+``` java
+@Value("${property.name}")
+private String message;
+```
