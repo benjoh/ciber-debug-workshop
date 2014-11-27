@@ -4,22 +4,20 @@ import no.ciber.tutorial.spring_hibernate.domain.Adresse;
 import no.ciber.tutorial.spring_hibernate.model.AdresseModel;
 
 public final class AdresseMapper {
-    private AdresseMapper(){
+    private AdresseMapper() {
     }
 
-    public static Adresse fromAdresseModel(AdresseModel model){
-        Adresse adresse = new Adresse();
-        adresse.setPostnummer(model.getPostnummer());
-        adresse.setPoststed(model.getPoststed());
-        adresse.setLand(model.getLand());
-        adresse.setLinje1(model.getLinje1());
-        adresse.setLinje2(model.getLinje2());
-        adresse.setLinje3(model.getLinje3());
-        adresse.setId(model.getId());
-        return adresse;
+    public static Adresse fromAdresseModel(AdresseModel model) {
+        return new Adresse(model.getId())
+                .postnummer(model.getPostnummer())
+                .poststed(model.getPoststed())
+                .land(model.getLand())
+                .linje1(model.getLinje1())
+                .linje2(model.getLinje2())
+                .linje3(model.getLinje3());
     }
 
-    public static AdresseModel toAdresseModel(Adresse adresse){
+    public static AdresseModel toAdresseModel(Adresse adresse) {
         AdresseModel model = new AdresseModel();
         model.setPostnummer(adresse.getPostnummer());
         model.setPoststed(adresse.getPoststed());

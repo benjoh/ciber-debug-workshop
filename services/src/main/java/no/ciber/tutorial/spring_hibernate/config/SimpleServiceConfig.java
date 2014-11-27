@@ -6,18 +6,24 @@ import no.ciber.tutorial.spring_hibernate.services.PersonService;
 import no.ciber.tutorial.spring_hibernate.services.impl.SimpleAdresseServiceImpl;
 import no.ciber.tutorial.spring_hibernate.services.impl.SimpleKjoretoyServiceImpl;
 import no.ciber.tutorial.spring_hibernate.services.impl.SimplePersonServiceImpl;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
 
+@Configuration
 public class SimpleServiceConfig {
 
-    public AdresseService initAdresseService() {
+    @Bean
+    public AdresseService adresseService() {
         return new SimpleAdresseServiceImpl();
     }
 
-    public KjoretoyService initKjoretoyService() {
+    @Bean
+    public KjoretoyService kjoretoyService() {
         return new SimpleKjoretoyServiceImpl();
     }
 
-    public PersonService initPersonService() {
+    @Bean
+    public PersonService personService() {
         return new SimplePersonServiceImpl();
     }
 }
