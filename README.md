@@ -32,7 +32,7 @@ Modifiser WebConfig.java i web-modulen slik at de plukkes opp av Spring og aktiv
 @EnableWebMvc  
 ```
 
-####Oppgave 2 - Benytt komponent-skanning for å finne controllere.
+###Oppgave 2 - Benytt komponent-skanning for å finne controllere.
 Modifiser AppConfig.java i web-modulen slik at den blir aktivert som en konfigurasjonsfil. 
 Aktiver også komponent-skanning for pakken [no.ciber.tutorial.spring_hibernate.config](https://github.com/peteabre/spring-hibernate-tutorial/tree/master/web/src/main/java/no/ciber/tutorial/spring_hibernate/config)
 Klasser som blir plukket opp av komponent-skanningen blir registrert i IOC-kontaineren og kan senere injiseres i andre klasser ved behov.
@@ -45,8 +45,7 @@ Klasser som blir plukket opp av komponent-skanningen blir registrert i IOC-konta
 Start applikasjonen ved å kjøre EmbeddedJetty klassen. 
 Gå til [http://localhost:8080/](http://localhost:8080/) for å verifisere at applikasjonen kjører. (Skal vise Hello World)
 
-Oppgave 3 - Konfigurer opp service-laget i applikasjonen
---------------------------------------------------------
+###Oppgave 3 - Konfigurer opp service-laget i applikasjonen
 Man kan også benytte komponentscanning for å finne tjenester. Denne oppgaven skal derimot løses ved at man manuelt konfigurere opp et par av tjenestene.
 Aktiver SimpleServiceConfig som en konfigurasjonsfil. Deretter så må man tilgjengeligjøre/registrere hver tjeneste som spring-beans i IOC-kontaineren.
 
@@ -59,8 +58,7 @@ public Service method(){
 ```
 Når klassene er registrert i IOC-kontaineren kan de injiseres i andre klasser ved behov.
 
-Oppgave 4 - Aktiver controller-klassene og endepunktene definert i klassene.
-----------------------------------------------------------------------------
+###Oppgave 4 - Aktiver controller-klassene og endepunktene definert i klassene.
 Modifiser kontroller-klassen [no.ciber.tutorial.spring_hibernate.controllers.AdresseController](https://github.com/peteabre/spring-hibernate-tutorial/blob/master/web/src/main/java/no/ciber/tutorial/spring_hibernate/controllers/AdresseController.java), 
 slik at den blir plukket opp av komponent-skanningen som ble aktivert i oppgave 2.
 Metodene i controller-klassen representerer "endepunkt" som skal kunne nås på ulike urler. 
@@ -102,8 +100,7 @@ public class Controller{
 ```
 Start applikasjonen på nytt og naviger til de ulike urlene på [http://localhost:8080/](http://localhost:8080/) for å verifisere at eksponeringen du har gjort funker.
 
-Oppgave 5 - Sett opp støtte for injisering av properties fra properties-fil.
-----------------------------------------------------------------------------
+###Oppgave 5 - Sett opp støtte for injisering av properties fra properties-fil.
 Spring støtter injisering av verdier fra properties-filer. I konfigurasjonsfilen [PropertySourceConfig]() er laget et begynnende konfigurasjonselement for dette.
 Legg inn lokasjonen til [config.properties]() i [PropertySourcesPlaceholderConfigurer]() som en [ClassPathResource](). Og aktiver konfigurasjonselementet vha. riktige annotasjoner.
 Injiser så verdien av propertien som er definert i filen i [IndexController]() slik at verdien av propertien kommer opp når man går til [http://localhost:8080](http://localhost:8080)
@@ -114,8 +111,8 @@ Injiser så verdien av propertien som er definert i filen i [IndexController]() 
 private String message;
 ```
 
-Oppgave 6 - View resolver.
---------------------------
+###Oppgave 6 - View resolver.
 
-Oppgave 7 - Kofigurer opp en datasource
----------------------------------------
+
+###Oppgave 7 - Kofigurer opp en datasource
+
