@@ -3,7 +3,7 @@ Ciber Spring-Hibernate tutorial
 
 Krav
 ----
-* [Java Platform (JDK) 8](http://www.oracle.com/technetwork/java/javase/downloads/index.html)
+* [Java (JDK) 8](http://www.oracle.com/technetwork/java/javase/downloads/index.html)
 * [Apache Maven 3.x](http://maven.apache.org/)
 
 Dette repositoriet inneholder en kode til en applikasjon som brukes i Cibers Spring-Hibernate tutorial.
@@ -16,7 +16,7 @@ Oppgave 6-10 er oppgaver knyttet til Hibernate.
 Oppgave 11-15 er oppgaver knyttet til mer avansert bruk av SpringWebMVC
 
 Applikasjonen kan startes ved og kjøre [EmbeddedJetty](https://github.com/peteabre/spring-hibernate-tutorial/blob/master/web/src/main/java/no/ciber/tutorial/spring_hibernate/EmbeddedJetty.java) 
--klassen fra en ide.Eventuelt så kan man bygge og starte applikasjonen med kommandoene:
+-klassen fra en ide. Eventuelt så kan man bygge og starte applikasjonen med kommandoene:
 ```sh
 mvn clean package
 java -jar web/target/web-1.0-SNAPSHOT.jar
@@ -116,5 +116,8 @@ Injiser så verdien av propertien som er definert i filen i [IndexController]() 
 private String message;
 ```
 
-Oppgave 6 - Kofigurer opp en datasource
+Oppgave 6 - View resolver.
+--------------------------
+
+Oppgave 7 - Kofigurer opp en datasource
 ---------------------------------------
