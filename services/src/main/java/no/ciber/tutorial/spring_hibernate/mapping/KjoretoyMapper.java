@@ -13,14 +13,13 @@ public final class KjoretoyMapper {
     private KjoretoyMapper(){};
 
     public static Kjoretoy fromKjoretoyModel(KjoretoyModel model){
-        Kjoretoy kjoretoy = new Kjoretoy();
-        kjoretoy.setUnderstellsnummer(model.getUnderstellsnummer());
-        kjoretoy.setMerke(model.getMerke());
-        kjoretoy.setModell(model.getModell());
-        kjoretoy.setUnderstellsnummer(model.getRegistreringsnummer());
-        kjoretoy.setRegistreringsaar(model.getRegistreringsaar());
-        kjoretoy.setEier(fromPersonModel(model.getEier()));
-        return kjoretoy;
+        return new Kjoretoy(model.getUnderstellsnummer())
+                .understellsnummer(model.getUnderstellsnummer())
+                .merke(model.getMerke())
+                .modell(model.getModell())
+                .understellsnummer(model.getRegistreringsnummer())
+                .registreringsaar(model.getRegistreringsaar())
+                .eier(fromPersonModel(model.getEier()));
     }
 
     public static List<Kjoretoy> fromKjoretoyModels(List<KjoretoyModel> modelList){

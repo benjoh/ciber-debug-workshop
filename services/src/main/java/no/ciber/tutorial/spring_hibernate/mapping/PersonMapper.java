@@ -9,21 +9,20 @@ import static no.ciber.tutorial.spring_hibernate.mapping.KjoretoyMapper.fromKjor
 import static no.ciber.tutorial.spring_hibernate.mapping.KjoretoyMapper.toKjoretoyModels;
 
 public final class PersonMapper {
-    private PersonMapper(){}
-
-    public static Person fromPersonModel(PersonModel model){
-        Person person = new Person();
-        person.setId(model.getId());
-        person.setFornavn(model.getFornavn());
-        person.setMellomnavn(model.getMellomnavn());
-        person.setEtternavn(model.getEtternavn());
-        person.setFodelsdag(model.getFodelsdag());
-        person.setAdresse(fromAdresseModel(model.getAdresse()));
-        person.setKjoretoy(fromKjoretoyModels(model.getKjoretoy()));
-        return person;
+    private PersonMapper() {
     }
 
-    public static PersonModel toPersonModel(Person person){
+    public static Person fromPersonModel(PersonModel model) {
+        return new Person(model.getId())
+                .fornavn(model.getFornavn())
+                .mellomnavn(model.getMellomnavn())
+                .etternavn(model.getEtternavn())
+                .fodelsdag(model.getFodelsdag())
+                .adresse(fromAdresseModel(model.getAdresse()))
+                .kjoretoy(fromKjoretoyModels(model.getKjoretoy()));
+    }
+
+    public static PersonModel toPersonModel(Person person) {
         PersonModel model = new PersonModel();
         model.setId(person.getId());
         model.setFornavn(person.getFornavn());

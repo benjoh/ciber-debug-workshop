@@ -90,7 +90,7 @@ public class Controller{
 
 *hint for endepunkt-eksponering:*
 ``` java
-@Controller
+@RestController
 public class Controller{
     @RequestMapping(value="url", method = GET)
     public String endpoint(){
@@ -110,9 +110,5 @@ Injiser så verdien av propertien som er definert i filen i [IndexController]() 
 @Value("${property.name}")
 private String message;
 ```
-
-###Oppgave 6 - View resolver.
-
-
-###Oppgave 7 - Kofigurer opp en datasource
+###Oppgave 6 - Konfigurer opp en datasource
 
