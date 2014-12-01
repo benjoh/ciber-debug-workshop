@@ -17,6 +17,7 @@ public class EmbeddedJetty {
     private static final String CONTEXT_PATH = "/";
     private static final String BASE_URL = "/";
     private static final String CONFIG = "no.ciber.tutorial.spring_hibernate.config";
+    private static final String BASE_WEBAPP_FOLDER = "webapp";
 
 
     public static void main(String[] args) throws Exception {
@@ -35,7 +36,7 @@ public class EmbeddedJetty {
             try {
                 return Integer.valueOf(args[0]);
             } catch (NumberFormatException ignore) {
-
+                // Ignorer ugyldig port og faller tilbake til standard port.
             }
         }
         return DEFAULT_PORT;
@@ -49,7 +50,7 @@ public class EmbeddedJetty {
         handler.setContextPath(CONTEXT_PATH);
         handler.addServlet(new ServletHolder(new DispatcherServlet(context)), BASE_URL);
         handler.addEventListener(new ContextLoaderListener(context));
-        handler.setResourceBase(new ClassPathResource("").getURI().toString());
+        handler.setResourceBase(new ClassPathResource(BASE_WEBAPP_FOLDER).getURI().toString());
         return handler;
     }
 
