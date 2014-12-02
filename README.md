@@ -156,10 +156,10 @@ public LocalSessionFactoryBean sessionFactoryBean(DataSource dataSource){
     return sessionFactory;
 }
 private Properties hibernateProperties(){
-    Properties hibernateProperties = new Properties();
-    hibernateProperties.setProperty("hibernate.dialect", "org.hibernate.dialect.HSQLDialect");
-    hibernateProperties.setProperty("hibernate.hbm2ddl.auto", "update");
-    return hibernateProperties;
+    Properties hp = new Properties();
+    hp.setProperty("hibernate.dialect", "org.hibernate.dialect.HSQLDialect");
+    hp.setProperty("hibernate.hbm2ddl.auto", "update");
+    return hp;
 }
 ```
 
