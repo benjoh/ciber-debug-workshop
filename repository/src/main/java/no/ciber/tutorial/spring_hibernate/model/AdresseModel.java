@@ -1,26 +1,13 @@
 package no.ciber.tutorial.spring_hibernate.model;
 
-import javax.persistence.*;
-
-@Entity
-@Table(name = "ADRESSE")
 public class AdresseModel {
 
-    @Id
-    @GeneratedValue
-    @Column
     public Long id;
-    @Column
     public String linje1;
-    @Column
     public String linje2;
-    @Column
     public String linje3;
-    @Column
     public Integer postnummer;
-    @Column
     public String poststed;
-    @Column
     public String land;
 
     public String getLand() {
@@ -71,7 +58,11 @@ public class AdresseModel {
         this.poststed = poststed;
     }
 
-    public Long getId() { return id; }
+    public Long getId() {
+        return id;
+    }
 
-    public void setId(Long id) { this.id = id; }
+    public void setId(Long id) {
+        this.id = id;
+    }
 }

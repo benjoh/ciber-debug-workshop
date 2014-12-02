@@ -14,12 +14,10 @@ import java.util.Optional;
 import static org.springframework.web.bind.annotation.RequestMethod.GET;
 import static org.springframework.web.bind.annotation.RequestMethod.POST;
 
-@RestController
 public class AdresseController {
 
     private AdresseService adresseService;
 
-    @Autowired
     public AdresseController(AdresseService adresseService) {
         this.adresseService = adresseService;
     }
@@ -27,7 +25,6 @@ public class AdresseController {
     /**
      * http://localhost/adresse  (GET)
      */
-    @RequestMapping(value = "adresse", method = GET)
     public List<Adresse> getAdresser() {
         return adresseService.findAll();
     }
@@ -35,7 +32,6 @@ public class AdresseController {
     /**
      * http://localhost/adresse  (POST)
      */
-    @RequestMapping(value = "adresse", method = POST)
     public ResponseEntity<Adresse> newAdresse(@RequestBody Adresse adresse) {
         adresseService.create(adresse);
         return new ResponseEntity<Adresse>(HttpStatus.OK);
@@ -44,7 +40,6 @@ public class AdresseController {
     /**
      * http://localhost/adresse/{id}
      */
-    @RequestMapping(value = "adresse/{id}", method = GET)
     public ResponseEntity<Adresse> getAdresse(@PathVariable String id) {
         Optional<Adresse> adresse = adresseService.findOne(Long.valueOf(id));
         if(adresse.isPresent()){
