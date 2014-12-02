@@ -48,6 +48,7 @@ Gå til [http://localhost:8080/](http://localhost:8080/) for å verifisere at ap
 ###Oppgave 3 - Konfigurer opp service-laget i applikasjonen
 Man kan også benytte komponentscanning for å finne tjenester. Denne oppgaven skal derimot løses ved at man manuelt konfigurere opp et par av tjenestene.
 Aktiver SimpleServiceConfig som en konfigurasjonsfil. Deretter så må man tilgjengeligjøre/registrere hver tjeneste som spring-beans i IOC-kontaineren.
+Registrer tjenestene som har navn som begynner med Simple (3 stk).
 
 *hint:*
 ``` java
