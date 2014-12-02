@@ -29,10 +29,10 @@ public class SimpleAdresseServiceImpl implements AdresseService {
 
     @Override
     public Optional<Adresse> findOne(Long id) {
-        return Optional.of(adresseListe.stream()
+        return adresseListe.stream()
                 .filter(adresse -> adresse.getId().equals(id))
-                .findFirst()
-                .orElseThrow(RuntimeException::new));
+                .findFirst();
+
     }
 
     @Override
