@@ -35,7 +35,7 @@ Modifiser WebConfig.java i web-modulen slik at de plukkes opp av Spring og aktiv
 
 ###Oppgave 2 - Benytt komponent-skanning for å finne controllere.
 Modifiser AppConfig.java i web-modulen slik at den blir aktivert som en konfigurasjonsfil. 
-Aktiver også komponent-skanning for pakken [no.ciber.tutorial.spring_hibernate.config](https://github.com/peteabre/spring-hibernate-tutorial/tree/master/web/src/main/java/no/ciber/tutorial/spring_hibernate/config).
+Aktiver også komponent-skanning for pakken [no.ciber.tutorial.spring_hibernate.controllers](https://github.com/peteabre/spring-hibernate-tutorial/tree/master/web/src/main/java/no/ciber/tutorial/spring_hibernate/controllers).
 Klasser som blir plukket opp av komponent-skanningen i denne pakken er markert med @Controller eller @RestController. 
 De blir registrert i IOC-kontaineren og kan senere injiseres i andre klasser ved behov.
 
