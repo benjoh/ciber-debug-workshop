@@ -40,12 +40,12 @@ public class DatasourceConfig {
     @Bean
     @Autowired
     public LocalContainerEntityManagerFactoryBean entityManagerFactory(DataSource dataSource) {
-        LocalContainerEntityManagerFactoryBean sessionFactory = new LocalContainerEntityManagerFactoryBean();
-        sessionFactory.setDataSource(dataSource);
-        sessionFactory.setPackagesToScan(MODEL_PACKAGE);
-        sessionFactory.setPersistenceProviderClass(HibernatePersistenceProvider.class);
-        sessionFactory.setJpaProperties(hibernateProperties());
-        return sessionFactory;
+        LocalContainerEntityManagerFactoryBean em = new LocalContainerEntityManagerFactoryBean();
+        em.setDataSource(dataSource);
+        em.setPackagesToScan(MODEL_PACKAGE);
+        em.setPersistenceProviderClass(HibernatePersistenceProvider.class);
+        em.setJpaProperties(hibernateProperties());
+        return em;
     }
 
     @Bean

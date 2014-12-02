@@ -102,8 +102,10 @@ Start applikasjonen på nytt og naviger til de ulike urlene på [http://localhos
 
 ###Oppgave 5 - Sett opp støtte for injisering av properties fra properties-fil.
 Spring støtter injisering av verdier fra properties-filer. I konfigurasjonsfilen [PropertySourceConfig]() er laget et begynnende konfigurasjonselement for dette.
-Legg inn lokasjonen til [config.properties]() i [PropertySourcesPlaceholderConfigurer]() som en [ClassPathResource](). Og aktiver konfigurasjonselementet vha. riktige annotasjoner.
-Injiser så verdien av propertien som er definert i filen i [IndexController]() slik at verdien av propertien kommer opp når man går til [http://localhost:8080](http://localhost:8080)
+Legg inn lokasjonen til [config.properties](https://github.com/peteabre/spring-hibernate-tutorial/blob/master/web/src/main/resources/config.properties) 
+i [PropertySourcesPlaceholderConfigurer]() som en [ClassPathResource](). Og aktiver konfigurasjonselementet vha. riktige annotasjoner.
+Injiser så verdien av propertien som er definert i filen i [IndexController](https://github.com/peteabre/spring-hibernate-tutorial/blob/master/web/src/main/java/no/ciber/tutorial/spring_hibernate/controllers/IndexController.java) 
+slik at verdien av propertien kommer opp når man går til [http://localhost:8080](http://localhost:8080)
 
 *hint:*
 ``` java
@@ -113,10 +115,10 @@ private String message;
 ###Oppgave 6 - Hibernate datasource
 For å benytte Hibernate må man sette opp en datasource. Datasourcen er oppkoblingen til databasen. 
 I applikasjonen benyttes en enkel "in-memory" HSQLDB. Databasen blir opprettet når applikasjonen starter og slettes igjen når applikasjonen stopper.
-For å aksessere databasen knytter man et SessionFactory mot datasourcen. I vårt eksempel med *Spring* og *Hibernate 4* så benytter vi
-[BasicDataSource]() og [LocalSessionFactoryBean]().
+For å aksessere databasen knytter man en EntityManager mot datasourcen. I vårt eksempel med *Spring* og *Hibernate 4* så benytter vi JPA (Java Persistence API)
+For datasource bruker vi en [BasicDataSource]() og for EnitityManager [LocalContainerEntityManagerFactoryBean]().
 
-Konfigurer opp en [BasisDataSource]() og [LocalSessionFactoryBean]() i [DatasourceConfig](). Husk å aktiver Springs transaksjonsstyring.
+Konfigurer opp en [BasisDataSource]() og [LocalContainerEntityManagerFactoryBean]() i [DatasourceConfig](https://github.com/peteabre/spring-hibernate-tutorial/blob/master/repository/src/main/java/no/ciber/tutorial/spring_hibernate/config/DatasourceConfig.java). Husk å aktiver Springs-transaksjonsstyring og JPA-scanning av DAO (repository) klasser.
 Nedenfor er en liste med attributter som må settes på datasourcen. Under der igjen er Hibernate-properties som må settes på sessionfactory.
 
 #####Datasource attributter
@@ -135,7 +137,7 @@ Nedenfor er en liste med attributter som må settes på datasourcen. Under der i
 
 Man kan benytte xml-konfigurering av Hibernate (Definere alle modell-klassene som hibernate skal benytte).
 I denne omgangen så lar vi Hibernate scanne etter klassene som skal benyttes. Dette gjøres ved å sette annotatedPackages
-til packene man ønsker skal scannes. For denne applikasjonen er det [no.ciber.tutorial.spring_hibernate.model]().
+til pakkene man ønsker skal scannes. For denne applikasjonen er det [no.ciber.tutorial.spring_hibernate.model](https://github.com/peteabre/spring-hibernate-tutorial/tree/master/repository/src/main/java/no/ciber/tutorial/spring_hibernate/model).
 
 Start applikasjonen og verifiser i loggen at Hibernate kjører. 
 
@@ -150,14 +152,15 @@ ds.setPassword(DB_PASSWORD);
 
 *hint sessionfactory oppsett:*
 ``` java
-public LocalSessionFactoryBean sessionFactoryBean(DataSource dataSource){
-    LocalSessionFactoryBean sessionFactory = new LocalSessionFactoryBean();
-    sessionFactory.setDataSource(dataSource);
-    sessionFactory.setAnnotatedPackages(MODEL_PACKAGE);
-    sessionFactory.setHibernateProperties(hibernateProperties());
-    return sessionFactory;
+public LocalContainerEntityManagerFactoryBean entityManagerFactory(DataSource dataSource){
+    LocalContainerEntityManagerFactoryBean em = new LocalContainerEntityManagerFactoryBean();
+    em.setDataSource(dataSource);
+    em.setPackagesToScan(MODEL_PACKAGE);
+    em.setPersistenceProviderClass(HibernatePersistenceProvider.class);
+    em.setJpaProperties(jpaProperties());
 }
-private Properties hibernateProperties(){
+
+private Properties jpaProperties(){
     Properties hp = new Properties();
     hp.setProperty("hibernate.dialect", "org.hibernate.dialect.HSQLDialect");
     hp.setProperty("hibernate.hbm2ddl.auto", "update");
@@ -165,9 +168,9 @@ private Properties hibernateProperties(){
 }
 ```
 
-###Oppgave 7 - JPA-Mapping av modell-klasse
+###Oppgave 7 - Mapping av modell klasse
 Hibernate er en JPA (Java Persistence API) provider, og støtter JPA-annotations for mapping. 
-Benytt annotasjonene i tabellen under til å mappe opp klassen [AdresseModel](). Sett eget navn på tabellen 
+Benytt annotasjonene i tabellen under til å mappe opp klassen [AdresseModel](https://github.com/peteabre/spring-hibernate-tutorial/blob/master/repository/src/main/java/no/ciber/tutorial/spring_hibernate/model/AdresseModel.java). Sett eget navn på tabellen 
 og kolonnene i databasen (De kan være det samme som attributtnavnet, men man bør eksplisitt angi kolonnenavn). 
 Kolonne mappingene kan angis på feltene eller på get/set-metodene til feltet. Du velger selv hva du ønsker å benytte.
 
@@ -197,3 +200,5 @@ Fjern @Configuration annotasjonen fra [SimpleServiceConfig]() og legg den til i 
 Start deretter applikasjonen på nytt. Prøv og legge til Adresser og hente ut adresser ved hjelp av kall til REST-tjenestene.
 I Chrome benytt [Advanced Rest Client](https://chrome.google.com/webstore/detail/advanced-rest-client/hgmloofddffdnphfgcellkdfbfbjeloo) 
 eller [Postman](https://chrome.google.com/webstore/detail/postman-rest-client/fdmmgilgnpjigdojojpjoooidkmcomcm).
+
+###Oppgave 8 - Mapping av modellklasser med avhengigheter seg i mellom.
