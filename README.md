@@ -35,8 +35,9 @@ Modifiser WebConfig.java i web-modulen slik at de plukkes opp av Spring og aktiv
 
 ###Oppgave 2 - Benytt komponent-skanning for å finne controllere.
 Modifiser AppConfig.java i web-modulen slik at den blir aktivert som en konfigurasjonsfil. 
-Aktiver også komponent-skanning for pakken [no.ciber.tutorial.spring_hibernate.config](https://github.com/peteabre/spring-hibernate-tutorial/tree/master/web/src/main/java/no/ciber/tutorial/spring_hibernate/config)
-Klasser som blir plukket opp av komponent-skanningen blir registrert i IOC-kontaineren og kan senere injiseres i andre klasser ved behov.
+Aktiver også komponent-skanning for pakken [no.ciber.tutorial.spring_hibernate.config](https://github.com/peteabre/spring-hibernate-tutorial/tree/master/web/src/main/java/no/ciber/tutorial/spring_hibernate/config).
+Klasser som blir plukket opp av komponent-skanningen i denne pakken er markert med @Controller eller @RestController. 
+De blir registrert i IOC-kontaineren og kan senere injiseres i andre klasser ved behov.
 
 *hint:*
 ``` java
@@ -145,15 +146,20 @@ Start applikasjonen og verifiser i loggen at Hibernate kjører.
 
 *hint datasource oppsett:*
 ``` java
-BasicDataSource ds = new BasicDataSource();
-ds.setDriverClassName(DB_DRIVER_CLASS);
-ds.setUrl(DB_CONNECTION_URL);
-ds.setUsername(DB_USERNAME);
-ds.setPassword(DB_PASSWORD);
+@Bean
+public DataSource datasource(){
+    BasicDataSource ds = new BasicDataSource();
+    ds.setDriverClassName(DB_DRIVER_CLASS);
+    ds.setUrl(DB_CONNECTION_URL);
+    ds.setUsername(DB_USERNAME);
+    ds.setPassword(DB_PASSWORD);
+}
 ```
 
 *hint sessionfactory oppsett:*
 ``` java
+@Bean
+@Autowired
 public LocalContainerEntityManagerFactoryBean entityManagerFactory(DataSource dataSource){
     LocalContainerEntityManagerFactoryBean em = new LocalContainerEntityManagerFactoryBean();
     em.setDataSource(dataSource);
