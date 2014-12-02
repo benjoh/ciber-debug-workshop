@@ -13,7 +13,7 @@ public class SimpleAdresseServiceImpl implements AdresseService {
     private static List<Adresse> adresseListe;
 
     static {
-        List<Adresse> adresseListe = new ArrayList<>();
+        adresseListe = new ArrayList<>();
         adresseListe.add(new Adresse(1L).land("Norge").postnummer(7300).poststed("Orkanger").linje1("Nylandet 2"));
         adresseListe.add(new Adresse(2L).land("Norge").postnummer(7320).poststed("Fanrem").linje1("Orkdalsveien 21").linje2("Pb 2000"));
         adresseListe.add(new Adresse(3L).land("Norge").postnummer(7000).poststed("Over alt").linje1("Nylandet 3"));
