@@ -110,5 +110,28 @@ Injiser så verdien av propertien som er definert i filen i [IndexController]() 
 @Value("${property.name}")
 private String message;
 ```
-###Oppgave 6 - Konfigurer opp en datasource
+###Oppgave 6 - Hibernate datasource
+For å benytte Hibernate må man sette opp en datasource. Datasourcen er oppkoblingen til databasen. 
+I applikasjonen benyttes en enkel "in-memory" HSQLDB. Databasen blir opprettet når applikasjonen starter og slettes igjen når applikasjonen stopper.
+For å aksessere databasen knytter man et SessionFactory mot datasourcen. I vårt eksempel med *Spring* og *Hibernate 4* så benytter vi
+[BasicDataSource]() og [LocalSessionFactoryBean]().
+
+Konfigurer opp en [BasisDataSource]() og [LocalSessionFactoryBean]() i [DatasourceConfig](). Husk å aktiver Springs transaksjonsstyring.
+Nedenfor er en liste med attributter som må settes på datasourcen. Under der igjen er Hibernate-properties som må settes på sessionfactory.
+
+| Attributt        | Verdi                |
+| ---------------- |:--------------------:|
+|DriverClassName   |org.hsqldb.jdbcDriver |
+|Url               |jdbc:hsqldb:mem:testdb|
+|Username          |sa                    |
+|Password          |                      |
+
+*hint:*
+``` java
+BasicDataSource ds = new BasicDataSource();
+ds.setDriverClassName(DB_DRIVER_CLASS);
+ds.setUrl(DB_CONNECTION_URL);
+ds.setUsername(DB_USERNAME);
+ds.setPassword(DB_PASSWORD);
+```
 
