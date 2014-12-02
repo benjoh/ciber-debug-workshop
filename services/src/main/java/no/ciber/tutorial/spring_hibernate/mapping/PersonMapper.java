@@ -13,12 +13,13 @@ public final class PersonMapper {
     }
 
     public static Person fromPersonModel(PersonModel model) {
+
         return new Person(model.getId())
                 .fornavn(model.getFornavn())
                 .mellomnavn(model.getMellomnavn())
                 .etternavn(model.getEtternavn())
                 .fodelsdag(model.getFodelsdag())
-                .adresse(fromAdresseModel(model.getAdresse()))
+                .adresse(fromAdresseModel(model.getAdresse()).orElse(null))
                 .kjoretoy(fromKjoretoyModels(model.getKjoretoy()));
     }
 

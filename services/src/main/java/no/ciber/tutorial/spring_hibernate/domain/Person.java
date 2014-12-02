@@ -1,6 +1,7 @@
 package no.ciber.tutorial.spring_hibernate.domain;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 
 public class Person {
@@ -11,6 +12,9 @@ public class Person {
     private LocalDate fodelsdag;
     private Adresse adresse;
     private List<Kjoretoy> kjoretoy;
+
+    public Person() {
+    }
 
     public Person(Long id) {
         this.id = id;
@@ -60,12 +64,6 @@ public class Person {
         return id;
     }
 
-    public Person id(Long id) {
-        Person copy = copy();
-        copy.id = id;
-        return copy;
-    }
-
     public Adresse getAdresse() {
         return adresse;
     }
@@ -86,8 +84,43 @@ public class Person {
         return copy;
     }
 
-    private Person copy(){
+    private Person copy() {
         Person copy = new Person(getId());
+        copy.kjoretoy = new ArrayList<>(getKjoretoy());
+        copy.adresse = getAdresse().copy();
+        copy.fornavn = getFornavn();
+        copy.etternavn = getEtternavn();
+        copy.fodelsdag = getFodelsdag();
+        copy.id = getId();
+        copy.mellomnavn = getMellomnavn();
         return copy;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public void setFornavn(String fornavn) {
+        this.fornavn = fornavn;
+    }
+
+    public void setMellomnavn(String mellomnavn) {
+        this.mellomnavn = mellomnavn;
+    }
+
+    public void setEtternavn(String etternavn) {
+        this.etternavn = etternavn;
+    }
+
+    public void setFodelsdag(LocalDate fodelsdag) {
+        this.fodelsdag = fodelsdag;
+    }
+
+    public void setAdresse(Adresse adresse) {
+        this.adresse = adresse;
+    }
+
+    public void setKjoretoy(List<Kjoretoy> kjoretoy) {
+        this.kjoretoy = kjoretoy;
     }
 }

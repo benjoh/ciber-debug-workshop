@@ -165,3 +165,35 @@ private Properties hibernateProperties(){
 }
 ```
 
+###Oppgave 7 - JPA-Mapping av modell-klasse
+Hibernate er en JPA (Java Persistence API) provider, og støtter JPA-annotations for mapping. 
+Benytt annotasjonene i tabellen under til å mappe opp klassen [AdresseModel](). Sett eget navn på tabellen 
+og kolonnene i databasen (De kan være det samme som attributtnavnet, men man bør eksplisitt angi kolonnenavn). 
+Kolonne mappingene kan angis på feltene eller på get/set-metodene til feltet. Du velger selv hva du ønsker å benytte.
+
+| Annotasjon       | Nivå            |
+| ---------------- |:---------------:|
+|@Entity           |Klasse           |
+|@Table            |Klasse           |
+|@Id               |Felt, Metode     |
+|@GeneratedValue   |Felt, Metode     |
+|@Column           |Felt, Metode     |
+
+*hint:*
+``` java
+@Entity
+@Table(name="tabell"
+public class Tabell{
+    @Id
+    @GeneratedValue
+    @Column(name="id")
+    private Integer id;
+    
+    @Column(name="kolonne1")
+    private String kolonne1
+}
+```
+Fjern @Configuration annotasjonen fra [SimpleServiceConfig]() og legg den til i klassen [ServiceConfig](). 
+Start deretter applikasjonen på nytt. Prøv og legge til Adresser og hente ut adresser ved hjelp av kall til REST-tjenestene.
+I Chrome benytt [Advanced Rest Client](https://chrome.google.com/webstore/detail/advanced-rest-client/hgmloofddffdnphfgcellkdfbfbjeloo) 
+eller [Postman](https://chrome.google.com/webstore/detail/postman-rest-client/fdmmgilgnpjigdojojpjoooidkmcomcm).

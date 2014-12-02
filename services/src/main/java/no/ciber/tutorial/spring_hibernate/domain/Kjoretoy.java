@@ -8,16 +8,15 @@ public class Kjoretoy {
     private String registreringsaar;
     private Person eier;
 
+    public Kjoretoy() {
+    }
+
     public Kjoretoy(String understellsnummer) {
         this.understellsnummer = understellsnummer;
     }
 
-    public String getUnderstellsnummer() { return understellsnummer; }
-
-    public Kjoretoy understellsnummer(String understellsnummer) {
-        Kjoretoy copy = copy();
-        copy.understellsnummer = understellsnummer;
-        return copy;
+    public String getUnderstellsnummer() {
+        return understellsnummer;
     }
 
     public String getRegistreringsnummer() {
@@ -70,7 +69,31 @@ public class Kjoretoy {
         return copy;
     }
 
-    private Kjoretoy copy(){
+    public void setUnderstellsnummer(String understellsnummer) {
+        this.understellsnummer = understellsnummer;
+    }
+
+    public void setRegistreringsnummer(String registreringsnummer) {
+        this.registreringsnummer = registreringsnummer;
+    }
+
+    public void setMerke(String merke) {
+        this.merke = merke;
+    }
+
+    public void setModell(String modell) {
+        this.modell = modell;
+    }
+
+    public void setRegistreringsaar(String registreringsaar) {
+        this.registreringsaar = registreringsaar;
+    }
+
+    public void setEier(Person eier) {
+        this.eier = eier;
+    }
+
+    private Kjoretoy copy() {
         Kjoretoy kjoretoy = new Kjoretoy(getUnderstellsnummer());
         kjoretoy.merke = getMerke();
         kjoretoy.modell = getModell();

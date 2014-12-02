@@ -10,6 +10,9 @@ public class Adresse {
     private String poststed;
     private String land;
 
+    public Adresse() {
+    }
+
     public Adresse(Long id) {
         this.id = id;
     }
@@ -58,7 +61,7 @@ public class Adresse {
         return postnummer;
     }
 
-    public Adresse postnummer(Integer postnummer){
+    public Adresse postnummer(Integer postnummer) {
         Adresse adresse = copy();
         adresse.postnummer = postnummer;
         return adresse;
@@ -78,7 +81,35 @@ public class Adresse {
         return id;
     }
 
-    private final Adresse copy() {
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public void setLinje1(String linje1) {
+        this.linje1 = linje1;
+    }
+
+    public void setLinje2(String linje2) {
+        this.linje2 = linje2;
+    }
+
+    public void setLinje3(String linje3) {
+        this.linje3 = linje3;
+    }
+
+    public void setPostnummer(Integer postnummer) {
+        this.postnummer = postnummer;
+    }
+
+    public void setPoststed(String poststed) {
+        this.poststed = poststed;
+    }
+
+    public void setLand(String land) {
+        this.land = land;
+    }
+
+    final Adresse copy() {
         Adresse adresse = new Adresse(getId());
         adresse.linje1 = getLinje1();
         adresse.linje2 = getLinje2();

@@ -2,13 +2,12 @@ package no.ciber.tutorial.spring_hibernate.services.impl;
 
 import no.ciber.tutorial.spring_hibernate.domain.Adresse;
 import no.ciber.tutorial.spring_hibernate.services.AdresseService;
-import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import java.util.Optional;
 
-@Service
 public class SimpleAdresseServiceImpl implements AdresseService {
 
     private static final List<Adresse> adresseListe;
@@ -23,15 +22,20 @@ public class SimpleAdresseServiceImpl implements AdresseService {
     }
 
     @Override
-    public Adresse getAdresse(Long id) {
-        return adresseListe.stream()
+    public Optional<Adresse> getAdresse(Long id) {
+        return Optional.of(adresseListe.stream()
                 .filter(adresse -> adresse.getId().equals(id))
                 .findFirst()
-                .orElseThrow(RuntimeException::new);
+                .orElseThrow(RuntimeException::new));
     }
 
     @Override
     public List<Adresse> getAdresser() {
         return adresseListe;
+    }
+
+    @Override
+    public java.util.Optional<Adresse> save(Adresse adresse) {
+        return null;
     }
 }

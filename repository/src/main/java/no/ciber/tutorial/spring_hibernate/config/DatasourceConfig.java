@@ -1,10 +1,14 @@
 package no.ciber.tutorial.spring_hibernate.config;
 
 import org.apache.commons.dbcp.BasicDataSource;
+import org.hibernate.jpa.HibernatePersistenceProvider;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.orm.hibernate4.LocalSessionFactoryBean;
+import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
+import org.springframework.orm.jpa.JpaTransactionManager;
+import org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean;
+import org.springframework.transaction.PlatformTransactionManager;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 import javax.sql.DataSource;
@@ -12,6 +16,7 @@ import java.util.Properties;
 
 @Configuration
 @EnableTransactionManagement
+@EnableJpaRepositories(basePackages = "no.ciber.tutorial.spring_hibernate.dao")
 public class DatasourceConfig {
 
     private static final String MODEL_PACKAGE = "no.ciber.tutorial.spring_hibernate.model";
@@ -21,7 +26,7 @@ public class DatasourceConfig {
     private static final String DB_PASSWORD = "";
 
     @Bean
-    public DataSource dataSource(){
+    public DataSource dataSource() {
         BasicDataSource ds = new BasicDataSource();
         ds.setDriverClassName(DB_DRIVER_CLASS);
         ds.setUrl(DB_CONNECTION_URL);
@@ -31,20 +36,28 @@ public class DatasourceConfig {
 
     }
 
+
     @Bean
     @Autowired
-    public LocalSessionFactoryBean sessionFactoryBean(DataSource dataSource){
-        LocalSessionFactoryBean sessionFactory = new LocalSessionFactoryBean();
+    public LocalContainerEntityManagerFactoryBean entityManagerFactory(DataSource dataSource) {
+        LocalContainerEntityManagerFactoryBean sessionFactory = new LocalContainerEntityManagerFactoryBean();
         sessionFactory.setDataSource(dataSource);
-        sessionFactory.setAnnotatedPackages(MODEL_PACKAGE);
-        sessionFactory.setHibernateProperties(hibernateProperties());
+        sessionFactory.setPackagesToScan(MODEL_PACKAGE);
+        sessionFactory.setPersistenceProviderClass(HibernatePersistenceProvider.class);
+        sessionFactory.setJpaProperties(hibernateProperties());
         return sessionFactory;
     }
 
-    private Properties hibernateProperties(){
+    @Bean
+    @Autowired
+    public PlatformTransactionManager transactionManager(LocalContainerEntityManagerFactoryBean entityManagerFactory) {
+        return new JpaTransactionManager(entityManagerFactory.getObject());
+    }
+
+    private Properties hibernateProperties() {
         Properties hibernateProperties = new Properties();
         hibernateProperties.setProperty("hibernate.dialect", "org.hibernate.dialect.HSQLDialect");
-        hibernateProperties.setProperty("hibernate.hbm2ddl.auto", "update");
+        hibernateProperties.setProperty("hibernate.hbm2ddl.auto", "create");
         return hibernateProperties;
     }
 }

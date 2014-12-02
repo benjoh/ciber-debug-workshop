@@ -10,25 +10,27 @@ import static no.ciber.tutorial.spring_hibernate.mapping.PersonMapper.fromPerson
 import static no.ciber.tutorial.spring_hibernate.mapping.PersonMapper.toPersonModel;
 
 public final class KjoretoyMapper {
-    private KjoretoyMapper(){};
+    private KjoretoyMapper() {
+    }
 
-    public static Kjoretoy fromKjoretoyModel(KjoretoyModel model){
+    ;
+
+    public static Kjoretoy fromKjoretoyModel(KjoretoyModel model) {
         return new Kjoretoy(model.getUnderstellsnummer())
-                .understellsnummer(model.getUnderstellsnummer())
                 .merke(model.getMerke())
                 .modell(model.getModell())
-                .understellsnummer(model.getRegistreringsnummer())
+                .registreringsnummer(model.getRegistreringsnummer())
                 .registreringsaar(model.getRegistreringsaar())
                 .eier(fromPersonModel(model.getEier()));
     }
 
-    public static List<Kjoretoy> fromKjoretoyModels(List<KjoretoyModel> modelList){
+    public static List<Kjoretoy> fromKjoretoyModels(List<KjoretoyModel> modelList) {
         List<Kjoretoy> kjoretoy = new ArrayList<>();
         modelList.forEach(model -> kjoretoy.add(fromKjoretoyModel(model)));
         return kjoretoy;
     }
 
-    public static KjoretoyModel toKjoretoyModel(Kjoretoy kjoretoy){
+    public static KjoretoyModel toKjoretoyModel(Kjoretoy kjoretoy) {
         KjoretoyModel model = new KjoretoyModel();
         model.setUnderstellsnummer(kjoretoy.getUnderstellsnummer());
         model.setMerke(kjoretoy.getMerke());
@@ -39,7 +41,7 @@ public final class KjoretoyMapper {
         return model;
     }
 
-    public static List<KjoretoyModel> toKjoretoyModels(List<Kjoretoy> kjoretoyList){
+    public static List<KjoretoyModel> toKjoretoyModels(List<Kjoretoy> kjoretoyList) {
         List<KjoretoyModel> models = new ArrayList<>();
         kjoretoyList.forEach(kjoretoy -> models.add(toKjoretoyModel(kjoretoy)));
         return models;
