@@ -4,6 +4,8 @@
 ##Krav
 * [Java (JDK) 8](http://www.oracle.com/technetwork/java/javase/downloads/index.html)
 * [Apache Maven 3.x](http://maven.apache.org/)
+* Nettleser med REST-verktøy innstallert. I Chrome benytt [Advanced Rest Client](https://chrome.google.com/webstore/detail/advanced-rest-client/hgmloofddffdnphfgcellkdfbfbjeloo) 
+eller [Postman](https://chrome.google.com/webstore/detail/postman-rest-client/fdmmgilgnpjigdojojpjoooidkmcomcm).
 
 ##Intro
 Dette repositoriet inneholder en kode til en applikasjon som brukes i Cibers Spring-Hibernate tutorial.
@@ -198,7 +200,25 @@ public class Tabell{
 ```
 Fjern @Configuration annotasjonen fra [SimpleServiceConfig]() og legg den til i klassen [ServiceConfig](). 
 Start deretter applikasjonen på nytt. Prøv og legge til Adresser og hente ut adresser ved hjelp av kall til REST-tjenestene.
-I Chrome benytt [Advanced Rest Client](https://chrome.google.com/webstore/detail/advanced-rest-client/hgmloofddffdnphfgcellkdfbfbjeloo) 
-eller [Postman](https://chrome.google.com/webstore/detail/postman-rest-client/fdmmgilgnpjigdojojpjoooidkmcomcm).
 
 ###Oppgave 8 - Mapping av modellklasser med avhengigheter seg i mellom.
+Utover annotasjonene som ble brukt i forrige oppgave. Ta i bruk en eller flere av annotasjonene under for å mappe opp 
+[PersonModel](https://github.com/peteabre/spring-hibernate-tutorial/blob/master/repository/src/main/java/no/ciber/tutorial/spring_hibernate/model/PersonModel.java) 
+og [KjoretoyModel](https://github.com/peteabre/spring-hibernate-tutorial/blob/master/repository/src/main/java/no/ciber/tutorial/spring_hibernate/model/KjoretoyModel.java). 
+
+| Annotasjon       | Nivå            |
+| ---------------- |:---------------:|
+|@ManyToOne        |Felt, Metode     |
+|@OneToMany        |Felt, Metode     |
+|@JoinColumn       |Felt, Metode     |
+
+*hint for person:*
+``` java
+@ManyToOne(fetch = EAGER)
+@JoinColumn(name = "adresse", nullable = false)
+private AdresseModel adresse;
+
+@OneToMany(mappedBy = "eier", fetch = EAGER)
+private List<KjoretoyModel> kjoretoy;
+```
+Start applikasjonen på nytt. Legg til Personer og Kjoretoy og hente dem ut igjen ved hjelp av kall til REST-tjenestene. 
