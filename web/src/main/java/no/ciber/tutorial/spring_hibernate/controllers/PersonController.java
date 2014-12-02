@@ -18,10 +18,12 @@ import java.util.Optional;
 import static org.springframework.web.bind.annotation.RequestMethod.GET;
 import static org.springframework.web.bind.annotation.RequestMethod.POST;
 
+@RestController
 public class PersonController {
 
     private PersonService personService;
 
+    @Autowired
     public PersonController(PersonService personService) {
         this.personService = personService;
     }
@@ -29,6 +31,7 @@ public class PersonController {
     /**
      * http://localhost/person  (GET)
      */
+    @RequestMapping(value = "person", method = GET)
     public List<Person> getPersoner() {
         return personService.findAll();
     }
@@ -36,6 +39,7 @@ public class PersonController {
     /**
      * http://localhost/person  (POST)
      */
+    @RequestMapping(value = "person", method = POST)
     public ResponseEntity<Adresse> newPerson(@RequestBody Person person) {
         personService.create(person);
         return new ResponseEntity<>(HttpStatus.OK);
@@ -44,6 +48,7 @@ public class PersonController {
     /**
      * http://localhost/person/{id}
      */
+    @RequestMapping(value = "person/{id}", method = GET)
     public ResponseEntity<Person> getPerson(@PathVariable String id) {
         Optional<Person> person = personService.findOne(Long.valueOf(id));
         if(person.isPresent()){

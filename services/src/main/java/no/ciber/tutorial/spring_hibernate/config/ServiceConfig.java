@@ -1,8 +1,10 @@
 package no.ciber.tutorial.spring_hibernate.config;
 
 import org.springframework.context.annotation.ComponentScan;
+import org.springframework.context.annotation.Configuration;
 
-@ComponentScan(basePackages = "no.ciber.tutorial.spring_hibernate.services")
+@Configuration
+@ComponentScan(basePackages = {"no.ciber.tutorial.spring_hibernate.services"})
 public class ServiceConfig {
 
 }

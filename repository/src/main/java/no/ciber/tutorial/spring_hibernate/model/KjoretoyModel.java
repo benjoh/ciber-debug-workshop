@@ -1,11 +1,27 @@
 package no.ciber.tutorial.spring_hibernate.model;
 
+import javax.persistence.*;
+
+@Entity
+@Table(name = "KJORETOY")
 public class KjoretoyModel {
+    @Id
+    @Column
     public String understellsnummer;
+
+    @Column
     public String registreringsnummer;
+
+    @Column
     public String merke;
+
+    @Column
     public String modell;
+
+    @Column
     public Integer registreringsaar;
+
+    @Column
     public Long eier;
 
     public String getUnderstellsnummer() {

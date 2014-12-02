@@ -1,15 +1,31 @@
 package no.ciber.tutorial.spring_hibernate.model;
 
+import javax.persistence.*;
 import java.time.LocalDate;
 import java.util.List;
 
+import static javax.persistence.FetchType.EAGER;
+
+@Entity
+@Table(name="PERSON")
 public class PersonModel {
+    @Id
+    @GeneratedValue
     private Long id;
+    @Column
     private String fornavn;
+    @Column
     private String mellomnavn;
+    @Column
     private String etternavn;
+    @Column
     private LocalDate fodelsdag;
+
+    @ManyToOne(fetch = EAGER)
+    @JoinColumn(name = "adresse", nullable = false)
     private AdresseModel adresse;
+
+    @OneToMany(mappedBy = "eier", fetch = EAGER)
     private List<KjoretoyModel> kjoretoy;
 
     public String getFornavn() {

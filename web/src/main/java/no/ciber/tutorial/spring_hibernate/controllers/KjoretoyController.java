@@ -16,10 +16,12 @@ import java.util.Optional;
 import static org.springframework.web.bind.annotation.RequestMethod.GET;
 import static org.springframework.web.bind.annotation.RequestMethod.POST;
 
+@RestController
 public class KjoretoyController {
 
     private KjoretoyService kjoretoyService;
 
+    @Autowired
     public KjoretoyController(KjoretoyService kjoretoyService) {
         this.kjoretoyService = kjoretoyService;
     }
@@ -27,6 +29,7 @@ public class KjoretoyController {
     /**
      * http://localhost/kjoretoy  (GET)
      */
+    @RequestMapping(value = "kjoretoy", method = GET)
     public List<Kjoretoy> getKjoretoroy() {
         return kjoretoyService.findAll();
     }
@@ -34,6 +37,7 @@ public class KjoretoyController {
     /**
      * http://localhost/kjoretoy  (POST)
      */
+    @RequestMapping(value = "kjoretoy", method = POST)
     public ResponseEntity<Kjoretoy> newAdresse(@RequestBody Kjoretoy kjoretoy) {
         kjoretoyService.create(kjoretoy);
         return new ResponseEntity<Kjoretoy>(HttpStatus.OK);
@@ -42,6 +46,7 @@ public class KjoretoyController {
     /**
      * http://localhost/kjoretoy/{id}
      */
+    @RequestMapping(value = "kjoretoy/{id}", method = GET)
     public ResponseEntity<Kjoretoy> getKjoretoy(@PathVariable String id) {
         Optional<Kjoretoy> kjoretoy = kjoretoyService.findOne(id);
         if (kjoretoy.isPresent()) {

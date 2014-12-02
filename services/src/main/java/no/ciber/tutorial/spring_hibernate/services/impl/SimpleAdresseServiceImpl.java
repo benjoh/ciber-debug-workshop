@@ -18,7 +18,6 @@ public class SimpleAdresseServiceImpl implements AdresseService {
         adresseListe.add(new Adresse(2L).land("Norge").postnummer(7320).poststed("Fanrem").linje1("Orkdalsveien 21").linje2("Pb 2000"));
         adresseListe.add(new Adresse(3L).land("Norge").postnummer(7000).poststed("Over alt").linje1("Nylandet 3"));
         adresseListe.add(new Adresse(4L).land("Norge").postnummer(7300).poststed("Under alt").linje1("Orkdalsveien 50"));
-
     }
 
     @Override
