@@ -1,4 +1,6 @@
 package no.ciber.tutorial.spring_hibernate.services;
 
-public interface PersonService {
+import no.ciber.tutorial.spring_hibernate.domain.Person;
+
+public interface PersonService extends CrudService<Person, Long>{
 }

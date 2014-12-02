@@ -30,7 +30,10 @@ public final class AdresseMapper {
         return adresser;
     }
 
-    public static AdresseModel toAdresseModel(Adresse adresse) {
+    public static Optional<AdresseModel> toAdresseModel(Adresse adresse) {
+        if(adresse == null){
+            return Optional.empty();
+        }
         AdresseModel model = new AdresseModel();
         model.setPostnummer(adresse.getPostnummer());
         model.setPoststed(adresse.getPoststed());
@@ -39,13 +42,13 @@ public final class AdresseMapper {
         model.setLinje2(adresse.getLinje2());
         model.setLinje3(adresse.getLinje3());
         model.setId(adresse.getId());
-        return model;
+        return Optional.of(model);
 
     }
 
     public static List<AdresseModel> toAdresseModelList(List<Adresse> adresser) {
         List<AdresseModel> modelList = new ArrayList<>();
-        adresser.forEach(adresse -> modelList.add(toAdresseModel(adresse)));
+        adresser.forEach(adresse -> modelList.add(toAdresseModel(adresse).get()));
         return modelList;
     }
 }

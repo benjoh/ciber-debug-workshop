@@ -29,7 +29,7 @@ public class AdresseController {
      */
     @RequestMapping(value = "adresse", method = GET)
     public List<Adresse> getAdresser() {
-        return adresseService.getAdresser();
+        return adresseService.findAll();
     }
 
     /**
@@ -37,7 +37,7 @@ public class AdresseController {
      */
     @RequestMapping(value = "adresse", method = POST)
     public ResponseEntity<Adresse> newAdresse(@RequestBody Adresse adresse) {
-        adresseService.save(adresse);
+        adresseService.create(adresse);
         return new ResponseEntity<Adresse>(HttpStatus.OK);
     }
 
@@ -46,7 +46,7 @@ public class AdresseController {
      */
     @RequestMapping(value = "adresse/{id}", method = GET)
     public ResponseEntity<Adresse> getAdresse(@PathVariable String id) {
-        Optional<Adresse> adresse = adresseService.getAdresse(Long.valueOf(id));
+        Optional<Adresse> adresse = adresseService.findOne(Long.valueOf(id));
         if(adresse.isPresent()){
             return new ResponseEntity<Adresse>(adresse.get(), HttpStatus.OK);
         }

@@ -86,8 +86,8 @@ public class Person {
 
     private Person copy() {
         Person copy = new Person(getId());
-        copy.kjoretoy = new ArrayList<>(getKjoretoy());
-        copy.adresse = getAdresse().copy();
+        copy.kjoretoy = getKjoretoy() == null ? null : new ArrayList<>(getKjoretoy());
+        copy.adresse = getAdresse() == null ? null : getAdresse().copy();
         copy.fornavn = getFornavn();
         copy.etternavn = getEtternavn();
         copy.fodelsdag = getFodelsdag();

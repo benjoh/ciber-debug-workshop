@@ -1,12 +1,31 @@
 package no.ciber.tutorial.spring_hibernate.model;
 
+import javax.persistence.*;
+
+import static javax.persistence.FetchType.EAGER;
+
+@Entity
+@Table(name="KJORETOY")
 public class KjoretoyModel {
+    @Id
+    @Column
     public String understellsnummer;
+
+    @Column
     public String registreringsnummer;
+
+    @Column
     public String merke;
+
+    @Column
     public String modell;
-    public String registreringsaar;
-    public PersonModel eier;
+
+    @Column
+    public Integer registreringsaar;
+
+    @ManyToOne(targetEntity = PersonModel.class)
+    @JoinColumn(name = "eier", nullable = false)
+    public Long eier;
 
     public String getUnderstellsnummer() { return understellsnummer; }
 
@@ -38,19 +57,19 @@ public class KjoretoyModel {
         this.modell = modell;
     }
 
-    public String getRegistreringsaar() {
+    public Integer getRegistreringsaar() {
         return registreringsaar;
     }
 
-    public void setRegistreringsaar(String registreringsaar) {
+    public void setRegistreringsaar(Integer registreringsaar) {
         this.registreringsaar = registreringsaar;
     }
 
-    public PersonModel getEier() {
+    public Long getEier() {
         return eier;
     }
 
-    public void setEier(PersonModel eier) {
+    public void setEier(Long eier) {
         this.eier = eier;
     }
 }

@@ -5,8 +5,8 @@ public class Kjoretoy {
     private String registreringsnummer;
     private String merke;
     private String modell;
-    private String registreringsaar;
-    private Person eier;
+    private Integer registreringsaar;
+    private Long eier;
 
     public Kjoretoy() {
     }
@@ -19,8 +19,16 @@ public class Kjoretoy {
         return understellsnummer;
     }
 
+    public void setUnderstellsnummer(String understellsnummer) {
+        this.understellsnummer = understellsnummer;
+    }
+
     public String getRegistreringsnummer() {
         return registreringsnummer;
+    }
+
+    public void setRegistreringsnummer(String registreringsnummer) {
+        this.registreringsnummer = registreringsnummer;
     }
 
     public Kjoretoy registreringsnummer(String registreringsnummer) {
@@ -33,6 +41,10 @@ public class Kjoretoy {
         return merke;
     }
 
+    public void setMerke(String merke) {
+        this.merke = merke;
+    }
+
     public Kjoretoy merke(String merke) {
         Kjoretoy copy = copy();
         copy.merke = merke;
@@ -43,54 +55,42 @@ public class Kjoretoy {
         return modell;
     }
 
+    public void setModell(String modell) {
+        this.modell = modell;
+    }
+
     public Kjoretoy modell(String modell) {
         Kjoretoy copy = copy();
         copy.modell = modell;
         return copy;
     }
 
-    public String getRegistreringsaar() {
+    public Integer getRegistreringsaar() {
         return registreringsaar;
     }
 
-    public Kjoretoy registreringsaar(String registreringsaar) {
+    public void setRegistreringsaar(Integer registreringsaar) {
+        this.registreringsaar = registreringsaar;
+    }
+
+    public Kjoretoy registreringsaar(Integer registreringsaar) {
         Kjoretoy copy = copy();
         copy.registreringsaar = registreringsaar;
         return copy;
     }
 
-    public Person getEier() {
+    public Long getEier() {
         return eier;
     }
 
-    public Kjoretoy eier(Person eier) {
+    public void setEier(Long eier) {
+        this.eier = eier;
+    }
+
+    public Kjoretoy eier(Long eier) {
         Kjoretoy copy = copy();
         copy.eier = eier;
         return copy;
-    }
-
-    public void setUnderstellsnummer(String understellsnummer) {
-        this.understellsnummer = understellsnummer;
-    }
-
-    public void setRegistreringsnummer(String registreringsnummer) {
-        this.registreringsnummer = registreringsnummer;
-    }
-
-    public void setMerke(String merke) {
-        this.merke = merke;
-    }
-
-    public void setModell(String modell) {
-        this.modell = modell;
-    }
-
-    public void setRegistreringsaar(String registreringsaar) {
-        this.registreringsaar = registreringsaar;
-    }
-
-    public void setEier(Person eier) {
-        this.eier = eier;
     }
 
     private Kjoretoy copy() {

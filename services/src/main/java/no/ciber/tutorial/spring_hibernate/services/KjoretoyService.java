@@ -1,4 +1,6 @@
 package no.ciber.tutorial.spring_hibernate.services;
 
-public interface KjoretoyService {
+import no.ciber.tutorial.spring_hibernate.domain.Kjoretoy;
+
+public interface KjoretoyService extends CrudService<Kjoretoy, String>{
 }

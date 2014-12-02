@@ -113,9 +113,9 @@ slik at verdien av propertien kommer opp når man går til [http://localhost:808
 private String message;
 ```
 ###Oppgave 6 - Hibernate datasource
-For å benytte Hibernate må man sette opp en datasource. Datasourcen er oppkoblingen til databasen. 
+For å benytte JPA (Java Persistence API) og Hibernate må man sette opp en datasource. Datasourcen er oppkoblingen til databasen. 
 I applikasjonen benyttes en enkel "in-memory" HSQLDB. Databasen blir opprettet når applikasjonen starter og slettes igjen når applikasjonen stopper.
-For å aksessere databasen knytter man en EntityManager mot datasourcen. I vårt eksempel med *Spring* og *Hibernate 4* så benytter vi JPA (Java Persistence API)
+For å aksessere databasen knytter man en EntityManager mot datasourcen. I vårt eksempel med *Spring* og *Hibernate 4* så benytter vi JPA.
 For datasource bruker vi en [BasicDataSource]() og for EnitityManager [LocalContainerEntityManagerFactoryBean]().
 
 Konfigurer opp en [BasisDataSource]() og [LocalContainerEntityManagerFactoryBean]() i [DatasourceConfig](https://github.com/peteabre/spring-hibernate-tutorial/blob/master/repository/src/main/java/no/ciber/tutorial/spring_hibernate/config/DatasourceConfig.java). Husk å aktiver Springs-transaksjonsstyring og JPA-scanning av DAO (repository) klasser.

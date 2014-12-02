@@ -22,17 +22,17 @@ public class AdresseServiceImpl implements AdresseService {
     }
 
     @Override
-    public Optional<Adresse> getAdresse(Long id) {
+    public Adresse create(Adresse model) {
+        return fromAdresseModel(adresseDAO.save(toAdresseModel(model).get())).get();
+    }
+
+    @Override
+    public Optional<Adresse> findOne(Long id) {
         return fromAdresseModel(adresseDAO.findOne(id));
     }
 
     @Override
-    public List<Adresse> getAdresser() {
+    public List<Adresse> findAll() {
         return fromAdresseModelList(adresseDAO.findAll());
-    }
-
-    @Override
-    public Optional<Adresse> save(Adresse adresse) {
-        return fromAdresseModel(adresseDAO.save(toAdresseModel(adresse)));
     }
 }
