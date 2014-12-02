@@ -35,7 +35,7 @@ Modifiser WebConfig.java i web-modulen slik at de plukkes opp av Spring og aktiv
 
 ###Oppgave 2 - Benytt komponent-skanning for å finne controllere.
 Modifiser AppConfig.java i web-modulen slik at den blir aktivert som en konfigurasjonsfil. 
-Aktiver også komponent-skanning for pakken [no.ciber.tutorial.spring_hibernate.config](https://github.com/peteabre/spring-hibernate-tutorial/tree/master/web/src/main/java/no/ciber/tutorial/spring_hibernate/config).
+Aktiver også komponent-skanning for pakken [no.ciber.tutorial.spring_hibernate.controllers](https://github.com/peteabre/spring-hibernate-tutorial/tree/master/web/src/main/java/no/ciber/tutorial/spring_hibernate/controllers).
 Klasser som blir plukket opp av komponent-skanningen i denne pakken er markert med @Controller eller @RestController. 
 De blir registrert i IOC-kontaineren og kan senere injiseres i andre klasser ved behov.
 
@@ -62,9 +62,10 @@ public Service method(){
 Når klassene er registrert i IOC-kontaineren kan de injiseres i andre klasser ved behov.
 
 ###Oppgave 4 - Aktiver controller-klassene og endepunktene definert i klassene.
-Modifiser kontroller-klassen [no.ciber.tutorial.spring_hibernate.controllers.AdresseController](https://github.com/peteabre/spring-hibernate-tutorial/blob/master/web/src/main/java/no/ciber/tutorial/spring_hibernate/controllers/AdresseController.java), 
-slik at den blir plukket opp av komponent-skanningen som ble aktivert i oppgave 2.
-Metodene i controller-klassen representerer "endepunkt" som skal kunne nås på ulike urler. 
+Modifiser kontroller-klassene i [no.ciber.tutorial.spring_hibernate.controllers](https://github.com/peteabre/spring-hibernate-tutorial/blob/master/web/src/main/java/no/ciber/tutorial/spring_hibernate/controllers/) 
+(ikke [IndexController](https://github.com/peteabre/spring-hibernate-tutorial/blob/master/web/src/main/java/no/ciber/tutorial/spring_hibernate/controllers/IndexController.java)), 
+slik at de blir plukket opp av komponent-skanningen som ble aktivert i oppgave 2.
+Metodene i controller-klassene representerer "endepunkt" som skal kunne nås på ulike urler. 
 Urlene er beskrevet i kommentarer over hver metode. Aktiver endepunktene slik at de kan nås på riktig url.
 Kontrolleren benytter også en tjeneste for å hente ut data. Denne tjenesten må injiseres i kontrolleren. 
 Man kan da benytte setter-injisering eller konstruktør-injisering. Gjerne prøv begge deler (ikke samtidig). 
@@ -101,7 +102,7 @@ public class Controller{
     }
 }  
 ```
-Start applikasjonen på nytt og naviger til de ulike urlene på [http://localhost:8080/](http://localhost:8080/) for å verifisere at eksponeringen du har gjort funker.
+Start applikasjonen på nytt og naviger til de ulike urlene for AdresseController på [http://localhost:8080/](http://localhost:8080/) for å verifisere at eksponeringen du har gjort funker.
 
 ###Oppgave 5 - Sett opp støtte for injisering av properties fra properties-fil.
 Spring støtter injisering av verdier fra properties-filer. I konfigurasjonsfilen [PropertySourceConfig]() er laget et begynnende konfigurasjonselement for dette.
@@ -123,6 +124,7 @@ For datasource bruker vi en [BasicDataSource]() og for EnitityManager [LocalCont
 
 Konfigurer opp en [BasisDataSource]() og [LocalContainerEntityManagerFactoryBean]() i [DatasourceConfig](https://github.com/peteabre/spring-hibernate-tutorial/blob/master/repository/src/main/java/no/ciber/tutorial/spring_hibernate/config/DatasourceConfig.java). Husk å aktiver Springs-transaksjonsstyring og JPA-scanning av DAO (repository) klasser.
 Nedenfor er en liste med attributter som må settes på datasourcen. Under der igjen er Hibernate-properties som må settes på sessionfactory.
+Aktiver også JPARepositoriene til Spring-data. Dette gjøres ved å benytte annotasjonen @EnableJpaRepositories(basePackages="no.ciber.tutorial.spring_hibernate.dao"). 
 
 #####Datasource attributter
 | Attributt        | Verdi                |
@@ -182,6 +184,7 @@ Benytt annotasjonene i tabellen under til å mappe opp klassen [AdresseModel](ht
 og kolonnene i databasen (De kan være det samme som attributtnavnet, men man bør eksplisitt angi kolonnenavn). 
 Kolonne mappingene kan angis på feltene eller på get/set-metodene til feltet. Du velger selv hva du ønsker å benytte.
 
+
 | Annotasjon       | Nivå            |
 | ---------------- |:---------------:|
 |@Entity           |Klasse           |
@@ -210,7 +213,8 @@ Start deretter applikasjonen på nytt. Prøv og legge til Adresser og hente ut a
 ###Oppgave 8 - Mapping av modellklasser med avhengigheter seg i mellom.
 Utover annotasjonene som ble brukt i forrige oppgave. Ta i bruk en eller flere av annotasjonene under for å mappe opp 
 [PersonModel](https://github.com/peteabre/spring-hibernate-tutorial/blob/master/repository/src/main/java/no/ciber/tutorial/spring_hibernate/model/PersonModel.java) 
-og [KjoretoyModel](https://github.com/peteabre/spring-hibernate-tutorial/blob/master/repository/src/main/java/no/ciber/tutorial/spring_hibernate/model/KjoretoyModel.java). 
+og [KjoretoyModel](https://github.com/peteabre/spring-hibernate-tutorial/blob/master/repository/src/main/java/no/ciber/tutorial/spring_hibernate/model/KjoretoyModel.java).
+Aktiver også Repositoriene for entitetene på samme måte som i forrige oppgave.
 
 | Annotasjon       | Nivå            |
 | ---------------- |:---------------:|
