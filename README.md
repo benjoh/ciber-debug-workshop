@@ -127,7 +127,7 @@ Nedenfor er en liste med attributter som må settes på datasourcen. Under der i
 |Username          |sa                    |
 |Password          |                      |
 
-######Hibernate-properties
+#####Hibernate-properties
 | Key                  | Value                           |
 | -------------------- |:-------------------------------:|
 |hibernate.dialect     |org.hibernate.dialect.HSQLDialect|
@@ -136,6 +136,8 @@ Nedenfor er en liste med attributter som må settes på datasourcen. Under der i
 Man kan benytte xml-konfigurering av Hibernate (Definere alle modell-klassene som hibernate skal benytte).
 I denne omgangen så lar vi Hibernate scanne etter klassene som skal benyttes. Dette gjøres ved å sette annotatedPackages
 til packene man ønsker skal scannes. For denne applikasjonen er det [no.ciber.tutorial.spring_hibernate.model]().
+
+Start applikasjonen og verifiser i loggen at Hibernate kjører. 
 
 *hint datasource oppsett:*
 ``` java
