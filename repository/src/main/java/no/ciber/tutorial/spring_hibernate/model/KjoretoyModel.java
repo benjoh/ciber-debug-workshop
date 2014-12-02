@@ -21,8 +21,7 @@ public class KjoretoyModel {
     @Column
     public Integer registreringsaar;
 
-    @ManyToOne(targetEntity = PersonModel.class)
-    @JoinColumn(name = "eier", nullable = false)
+    @Column
     public Long eier;
 
     public String getUnderstellsnummer() {
