@@ -13,9 +13,8 @@ Applikasjonen er skrevet i Java 8 og bygger vha. Maven. Det er en veldig enkelt 
 som man gjennom tutorialen skal modifisere for å få en helt basic innføring i Spring og Hibernate.
 Hvert lag i applikasjonen er representert som en egen modul (jar).  
 
-Oppgave 1-5 er enkle oppgaver knyttet til Springs IOC-kontainer og bruken av denne via SpringWebMVC.
-Oppgave 6-10 er oppgaver knyttet til Hibernate.
-Oppgave 11-15 er oppgaver knyttet til mer avansert bruk av SpringWebMVC
+Oppgave 1-5 er oppgaver knyttet til Springs IOC-kontainer og bruken av denne via SpringWebMVC.
+Oppgave 6-8 er oppgaver knyttet til Hibernate.
 
 Applikasjonen kan startes ved og kjøre [EmbeddedJetty](https://github.com/peteabre/spring-hibernate-tutorial/blob/master/web/src/main/java/no/ciber/tutorial/spring_hibernate/EmbeddedJetty.java) 
 -klassen fra en ide. Eventuelt så kan man bygge og starte applikasjonen med kommandoene:
