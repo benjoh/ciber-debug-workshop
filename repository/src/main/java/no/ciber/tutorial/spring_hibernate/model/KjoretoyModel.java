@@ -2,10 +2,8 @@ package no.ciber.tutorial.spring_hibernate.model;
 
 import javax.persistence.*;
 
-import static javax.persistence.FetchType.EAGER;
-
 @Entity
-@Table(name="KJORETOY")
+@Table(name = "KJORETOY")
 public class KjoretoyModel {
     @Id
     @Column
@@ -27,7 +25,9 @@ public class KjoretoyModel {
     @JoinColumn(name = "eier", nullable = false)
     public Long eier;
 
-    public String getUnderstellsnummer() { return understellsnummer; }
+    public String getUnderstellsnummer() {
+        return understellsnummer;
+    }
 
     public void setUnderstellsnummer(String understellsnummer) {
         this.understellsnummer = understellsnummer;
