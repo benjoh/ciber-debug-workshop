@@ -1,5 +1,7 @@
 package no.ciber.tutorial.spring_hibernate.config;
 
+import no.ciber.tutorial.spring_hibernate.dao.KjoretoyDAO;
+import no.ciber.tutorial.spring_hibernate.model.KjoretoyModel;
 import org.apache.commons.dbcp.BasicDataSource;
 import org.hibernate.jpa.HibernatePersistenceProvider;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -33,7 +35,6 @@ public class DatasourceConfig {
         ds.setUsername(DB_USERNAME);
         ds.setPassword(DB_PASSWORD);
         return ds;
-
     }
 
 

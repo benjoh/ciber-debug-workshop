@@ -16,8 +16,7 @@ public class IndexController {
     private String message = "Hello world";
 
     @RequestMapping(value="/", method = GET)
-    @ResponseBody
     public String showIndex(){
-        return message;
+        return "index";
     }
 }
