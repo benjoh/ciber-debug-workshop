@@ -21,10 +21,11 @@ public class WebConfig extends WebMvcConfigurerAdapter{
     }
 
     @Bean
-    public ViewResolver getViewResolver(){
+    public InternalResourceViewResolver setupViewResolver() {
         InternalResourceViewResolver resolver = new InternalResourceViewResolver();
-        resolver.setPrefix("/");
+        resolver.setPrefix("/WEB-INF/views/");
         resolver.setSuffix(".html");
+
         return resolver;
     }
 
