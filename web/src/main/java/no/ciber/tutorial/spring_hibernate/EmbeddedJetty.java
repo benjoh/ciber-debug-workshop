@@ -15,7 +15,7 @@ public class EmbeddedJetty {
 
     private static final int DEFAULT_PORT = 8080;
     private static final String CONTEXT_PATH = "/";
-    private static final String BASE_URL = "/";
+    private static final String BASE_URL = "/*";
     private static final String CONFIG = "no.ciber.tutorial.spring_hibernate.config";
     private static final String BASE_WEBAPP_FOLDER = "webapp";
 
