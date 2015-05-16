@@ -14,7 +14,7 @@ public class IndexController {
     @Value("${test.message}")
     private String message = "Hello world";
 
-    @RequestMapping(value="/home")
+    @RequestMapping(value="/")
     public String showIndex(){
         return "index";
     }
