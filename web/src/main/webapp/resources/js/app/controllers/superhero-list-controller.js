@@ -10,5 +10,22 @@ function SuperheroListController(Superhero) {
 
     console.log("such controller");
     console.log(this.superheroes);
+
+    this.goToDetailsView = function($event, superheroId){
+        $event.stopPropagation();
+        console.log(superheroId);
+    }
+
+    this.editHero = function($event, superheroId){
+        $event.stopPropagation();
+        console.log("edit hero");
+    };
+
+    this.deleteHero = function($event, superhero){
+        $event.stopPropagation();
+        console.log(superhero);
+        superhero.$delete();
+        console.log("delte hero");
+    }
 }
 

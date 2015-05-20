@@ -1,10 +1,10 @@
 <div class="container">
     <div class="border row">
-        <div class="border col-md-3" ng-repeat="superhero in ctrl.superheroes">
+        <div class="border col-md-3" ng-repeat="superhero in ctrl.superheroes" ng-click="ctrl.goToDetailsView($event, superhero.id)">
             <h1>{{superhero.heroName}}</h1>
             <img ng-src="{{superhero.imageUrl}}"/>
-            <button type="button">Slett</button>
-            <button type="submit">Endre</button>
+            <button type="button" ng-click="ctrl.deleteHero($event, superhero)">Slett</button>
+            <button type="submit" ng-click="ctrl.editHero($event, superhero.id)">Endre</button>
         </div>
     </div>
 </div>

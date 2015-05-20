@@ -1,18 +1,20 @@
 angular.module('superhelt.controller')
     .controller('CreateSuperheroController', CreateSuperheroController);
 
-CreateSuperheroController.$inject = ['Superhero'];
+CreateSuperheroController.$inject = ['Superhero', 'SuperheroHelperService'];
 
-function CreateSuperheroController(Superhero) {
-    this.message = "I am the creat ehero contraollagh!!";
+function CreateSuperheroController(Superhero, SuperheroHelperService) {
     var self = this;
     this.hero = new Superhero();
+    SuperheroHelperService.getGroupAffiliations().then(function(response){
+        self.groups = response.data;
+        console.log(self.groups);
+    });
 
-    console.log("such controller");
+
 
     this.save = function(form, $event) {
         $event.preventDefault();
-        console.log("kalles save??");
 
         this.hero.$save(function(data){
             console.log(data);

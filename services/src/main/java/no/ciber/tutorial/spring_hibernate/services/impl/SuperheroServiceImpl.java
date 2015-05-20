@@ -32,4 +32,9 @@ public class SuperheroServiceImpl implements SuperheroService {
     public List<Superhero> findAll() {
         return fromSuperheroModelList(superheroDAO.findAll());
     }
+
+    @Override
+    public void delete(long superheroId) {
+        superheroDAO.delete(superheroId);
+    }
 }

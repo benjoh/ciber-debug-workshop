@@ -55,13 +55,15 @@
         </div>
 
 
-
         <div class="row">
             <div class="col-md-5">
                 <label class="requiredInput">Gruppetilhørighet</label>
             </div>
             <div class="col-md-7">
-                <input heroName="groupAffilitation" type="text" ng-model="ctrl.hero.groupAffilitation" ng-minlength="2"/>
+                <select ng-model="ctrl.hero.groupAffilitation"
+                        ng-options="group for group in ctrl.groups">
+                    <option value="">Velg Gruppetilhørighet</option>
+                </select>
             </div>
         </div>
 

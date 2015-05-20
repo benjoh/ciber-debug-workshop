@@ -25,4 +25,10 @@ public class SuperheroController {
     public Superhero save(@RequestParam(value = "id", required = false) Long id, @RequestBody Superhero superhero) throws Exception {
         return superheroService.create(superhero);
     }
+
+    @RequestMapping( method = RequestMethod.DELETE)
+    public void delete(@RequestParam(value = "id") Long id) {
+        superheroService.delete(id);
+    }
+
 }
