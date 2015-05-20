@@ -113,7 +113,7 @@ slik at verdien av propertien kommer opp når man går til [http://localhost:808
 
 *hint:*
 ``` java
-@Value("${property.name}")
+@Value("${property.heroName}")
 private String message;
 ```
 ###Oppgave 6 - Hibernate datasource
@@ -196,14 +196,14 @@ Kolonne mappingene kan angis på feltene eller på get/set-metodene til feltet. 
 *hint:*
 ``` java
 @Entity
-@Table(name="tabell"
+@Table(heroName="tabell"
 public class Tabell{
     @Id
     @GeneratedValue
-    @Column(name="id")
+    @Column(heroName="id")
     private Integer id;
     
-    @Column(name="kolonne1")
+    @Column(heroName="kolonne1")
     private String kolonne1
 }
 ```
@@ -225,7 +225,7 @@ Aktiver også Repositoriene for entitetene på samme måte som i forrige oppgave
 *hint for person:*
 ``` java
 @ManyToOne(fetch = EAGER)
-@JoinColumn(name = "adresse", nullable = false)
+@JoinColumn(heroName = "adresse", nullable = false)
 private AdresseModel adresse;
 
 @OneToMany(mappedBy = "eier", fetch = EAGER)

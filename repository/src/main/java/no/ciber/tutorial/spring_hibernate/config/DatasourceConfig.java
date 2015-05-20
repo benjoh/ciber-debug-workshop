@@ -23,7 +23,8 @@ public class DatasourceConfig {
 
     private static final String MODEL_PACKAGE = "no.ciber.tutorial.spring_hibernate.model";
     private static final String DB_DRIVER_CLASS = "org.hsqldb.jdbcDriver";
-    private static final String DB_CONNECTION_URL = "jdbc:hsqldb:mem:testdb";
+/*    private static final String DB_CONNECTION_URL = "jdbc:hsqldb:mem:testdb";*/
+    private static final String DB_CONNECTION_URL = "jdbc:hsqldb:file:data/mydb;shutdown=true;hsqldb.write_delay=false;";
     private static final String DB_USERNAME = "sa";
     private static final String DB_PASSWORD = "";
 
@@ -58,7 +59,7 @@ public class DatasourceConfig {
     private Properties hibernateProperties() {
         Properties hibernateProperties = new Properties();
         hibernateProperties.setProperty("hibernate.dialect", "org.hibernate.dialect.HSQLDialect");
-        hibernateProperties.setProperty("hibernate.hbm2ddl.auto", "create");
+        hibernateProperties.setProperty("hibernate.hbm2ddl.auto", "update");
         return hibernateProperties;
     }
 }

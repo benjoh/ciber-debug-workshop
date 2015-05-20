@@ -11,7 +11,7 @@
     <groupId>no.ciber.tutorial.spring-hibernate</groupId>
     <artifactId>web</artifactId>
     <version>1.0-SNAPSHOT</version>
-    <name>Ciber Spring &amp; Hibernate tutorial web-lag</name>
+    <heroName>Ciber Spring &amp; Hibernate tutorial web-lag</heroName>
     <url>http://maven.apache.org</url>
     <properties>
         <service.version>1.0-SNAPSHOT</service.version>

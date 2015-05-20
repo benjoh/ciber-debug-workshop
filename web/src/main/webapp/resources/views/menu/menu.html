@@ -1,0 +1,36 @@
+<div class="menu">
+    <div class="container">
+        <div class="row-fluid">
+            <nav class="navbar" role="navigation">
+                <div class="container hidden-sm hidden-md hidden-lg">
+                    <div class="navbar-header">
+                        <div class="headertitle">
+                            <div class="pull-left app-title">MSR</div>
+                        </div>
+                        <button type="button" class="search-icon collapsed" data-toggle="collapse" data-target="#search"></button>
+                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navigation">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="navbar collapse hidden-sm hidden-md hidden-lg" id="navigation">
+                    <ul class="menu-sm">
+                        <li><a data-toggle="collapse" data-target=".collapse" class="menu-el-sm" ui-sref="oversikt">OVERSIKT</a></li>
+                        <li><a data-toggle="collapse" data-target=".collapse" class="menu-el-sm" ui-sref="opprettNy" >OPPRETT NY</a></li>
+                    </ul>
+                </div>
+
+                <div class="menu-inner hidden-xs col-sm-12 col-md-10 pull-left">
+                    <ul class="nav">
+                        <li><a id="overviewBtn" class="menu-el" ui-sref="oversikt">OVERSIKT</a></li>
+                        <li><a id="newStationBtn" class="menu-el" ui-sref="opprettNy" >OPPRETT NY</a></li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+    </div>
+</div>

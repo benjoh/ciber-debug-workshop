@@ -3,7 +3,7 @@
 <head>
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" >
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta heroName="viewport" content="width=device-width, initial-scale=1">
     <title>Superhelt</title>
 
     <link href="resources/styles/vendor/bootstrap.min.css" rel="stylesheet"/>
@@ -11,15 +11,21 @@
     <script src="resources/js/vendor/jquery-2.1.4.min.js"></script>
     <script src="resources/js/vendor/angular.min.js"></script>
     <script src="resources/js/vendor/bootstrap.min.js"></script>
+    <script src="resources/js/vendor/angular-resource.min.js"></script>
+    <script src="resources/js/vendor/angular-ui-router.min.js"></script>
     <script src="resources/js/app/main.js"></script>
     <script src="resources/js/app/directives/header-directive.js"></script>
+    <script src="resources/js/app/directives/menu-directive.js"></script>
+    <script src="resources/js/app/controllers/superhero-list-controller.js"></script>
+    <script src="resources/js/app/controllers/create-superhero-controller.js"></script>
+    <script src="resources/js/app/services/superhero-service.js"></script>
 </head>
 <body>
     <div id="PageContainer">
         <superhelt-header></superhelt-header>
-        <h1>Hello world Benjamin!</h1>
-        <!--<msr-menu></msr-menu>-->
-        <!--div id="ContentContainer" ui-view/>-->
+        <superhelt-menu></superhelt-menu>
+
+        <div id="ContentContainer" ui-view/>
     </div>
 </body>
 </html>
