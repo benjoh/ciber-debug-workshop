@@ -6,12 +6,11 @@ import no.ciber.tutorial.spring_hibernate.services.SuperheroService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
 
-import static no.ciber.tutorial.spring_hibernate.mapping.SuperheroMapper.fromSuperheroModel;
-import static no.ciber.tutorial.spring_hibernate.mapping.SuperheroMapper.fromSuperheroModelList;
-import static no.ciber.tutorial.spring_hibernate.mapping.SuperheroMapper.toSuperheroModel;
+import static no.ciber.tutorial.spring_hibernate.mapping.SuperheroMapper.*;
 
 @Service
 public class SuperheroServiceImpl implements SuperheroService {
@@ -24,13 +23,20 @@ public class SuperheroServiceImpl implements SuperheroService {
     }
 
     @Override
-    public Optional<Superhero> findOne(Long aLong) {
-        return null;
+    public Superhero save(Superhero superhero) {
+        return fromSuperheroModel(superheroDAO.save(toSuperheroModel(superhero).get())).get();
+    }
+
+    @Override
+    public Optional<Superhero> findOne(Long id) {
+        return fromSuperheroModel(superheroDAO.findOne(id));
     }
 
     @Override
     public List<Superhero> findAll() {
-        return fromSuperheroModelList(superheroDAO.findAll());
+        List<Superhero> superheros = fromSuperheroModelList(superheroDAO.findAll());
+        Collections.sort(superheros);
+        return superheros;
     }
 
     @Override

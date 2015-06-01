@@ -1,24 +1,22 @@
 angular.module('superhelt.controller')
     .controller('CreateSuperheroController', CreateSuperheroController);
 
-CreateSuperheroController.$inject = ['Superhero', 'SuperheroHelperService'];
+CreateSuperheroController.$inject = ['Superhero', 'SuperheroHelperService', '$location'];
 
-function CreateSuperheroController(Superhero, SuperheroHelperService) {
+function CreateSuperheroController(Superhero, SuperheroHelperService, $location) {
     var self = this;
     this.hero = new Superhero();
+
     SuperheroHelperService.getGroupAffiliations().then(function(response){
         self.groups = response.data;
-        console.log(self.groups);
     });
-
-
 
     this.save = function(form, $event) {
         $event.preventDefault();
 
         this.hero.$save(function(data){
-            console.log(data);
-        })
+            $location.path("/oversikt/")
+        });
         /*form.$submitted = true;
         PubSubService.publish('submitForm');
 

@@ -14,6 +14,12 @@ angular.module('superhelt', ['superhelt.directive', 'superhelt.controller', 'ui.
                 templateUrl: 'resources/views/create-hero-page.html',
                 controller: "CreateSuperheroController",
                 controllerAs: 'ctrl'
+            })
+            .state('detaljer', {
+                url: "/detaljer/:id",
+                templateUrl: 'resources/views/edit-page.html',
+                controller: "EditSuperheroController",
+                controllerAs: 'ctrl'
             });
             /*.state('oversikt', {
                 url: "/oversikt/:id",

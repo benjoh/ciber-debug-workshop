@@ -2,7 +2,7 @@ package no.ciber.tutorial.spring_hibernate.domain;
 
 import no.ciber.tutorial.spring_hibernate.model.HeroGroup;
 
-public class Superhero {
+public class Superhero implements Comparable<Superhero> {
     private Long id;
     private String heroName;
     private String realName;
@@ -151,5 +151,10 @@ public class Superhero {
 
     public void setRealName(String realName) {
         this.realName = realName;
+    }
+
+    @Override
+    public int compareTo(Superhero o) {
+        return this.heroName.compareTo(o.getHeroName());
     }
 }

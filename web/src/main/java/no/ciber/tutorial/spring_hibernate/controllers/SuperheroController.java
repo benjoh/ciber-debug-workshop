@@ -7,6 +7,7 @@ import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("crud/superhero")
@@ -23,12 +24,20 @@ public class SuperheroController {
 
     @RequestMapping(method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
     public Superhero save(@RequestParam(value = "id", required = false) Long id, @RequestBody Superhero superhero) throws Exception {
-        return superheroService.create(superhero);
+        return superheroService.save(superhero);
     }
 
     @RequestMapping( method = RequestMethod.DELETE)
     public void delete(@RequestParam(value = "id") Long id) {
         superheroService.delete(id);
     }
+
+    @RequestMapping(method=RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+    public @ResponseBody
+    Superhero get(@RequestParam(value = "id") long id) {
+        Optional<Superhero> one = superheroService.findOne(id);
+        return one.get();
+    }
+
 
 }
