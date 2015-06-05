@@ -1,12 +1,12 @@
 <div class="container">
-    <label>Søk: <input ng-model="search.heroName"></label>
+    <div class="searchContainer"><label>Søk: <input ng-model="search.heroName"></label></div>
 
 <!--    <select ng-model="filterItem.affilitation" ng-options="group for group in ctrl.groups">
         <option value="">Filtrer på gruppetilhørighet</option>>
     </select>-->
 
     <div class="border row">
-        <div class="border col-md-3" ng-repeat="superhero in ctrl.superheroes | filter:search:strict" ng-click="ctrl.goToDetailsView($event, superhero.id)">
+        <div class="border heroSmall col-md-3" ng-repeat="superhero in ctrl.superheroes | filter:search:strict" ng-click="ctrl.goToDetailsView($event, superhero.id)">
             <h1>{{superhero.heroName}}</h1>
             <div class="heroImg"><img ng-src="{{superhero.imageUrl}}"/></div>
             <div class="buttons">

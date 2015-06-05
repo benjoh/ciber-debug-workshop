@@ -1,87 +1,96 @@
 <div class="container">
-    <form heroName="newHeroForm" novalidate ng-submit="ctrl.save(newHeroForm, $event)">
-        <div class="row">
-            <div class="col-md-5">
-                <label class="requiredInput">Heltenavn</label>
-            </div>
-            <div class="col-md-7">
-                <input heroName="heroName" type="text" ng-model="ctrl.hero.heroName" ng-minlength="2" required />
-            </div>
+    <div class="row editPage">
+        <div class="col-md-6">
+            <form heroName="newHeroForm" novalidate ng-submit="ctrl.save(newHeroForm, $event)">
+                <div class="row">
+                    <div class="col-md-5">
+                        <label class="requiredInput">Heltenavn</label>
+                    </div>
+                    <div class="col-md-7">
+                        <input heroName="heroName" type="text" ng-model="ctrl.hero.heroName" ng-minlength="2" required />
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-5">
+                        <label class="requiredInput">Ekte navn</label>
+                    </div>
+                    <div class="col-md-7">
+                        <input heroName="realName" type="text" ng-model="ctrl.hero.realName" ng-minlength="2" required />
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-5">
+                        <label class="requiredInput">Høyde (i cm)</label>
+                    </div>
+                    <div class="col-md-7">
+                        <input heroName="height" type="text" ng-model="ctrl.hero.height" required />
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-5">
+                        <label class="requiredInput">Superkrefter og evner</label>
+                    </div>
+                    <div class="col-md-7">
+                        <input heroName="powers" type="text" ng-model="ctrl.hero.powers" ng-minlength="2"/>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-5">
+                        <label class="requiredInput">Debut i tegneserie</label>
+                    </div>
+                    <div class="col-md-7">
+                        <input heroName="appearanceComic" type="text" ng-model="ctrl.hero.appearanceComic" ng-minlength="2"/>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-5">
+                        <label class="requiredInput">Debut i film</label>
+                    </div>
+                    <div class="col-md-7">
+                        <input heroName="appearanceMovie" type="text" ng-model="ctrl.hero.appearanceMovie" ng-minlength="2"/>
+                    </div>
+                </div>
+
+
+                <div class="row">
+                    <div class="col-md-5">
+                        <label class="requiredInput">Gruppetilhørighet</label>
+                    </div>
+                    <div class="col-md-7">
+                        <select ng-model="ctrl.hero.groupAffiliation"
+                                ng-options="group for group in ctrl.groups">
+                            <option value="">Velg Gruppetilhørighet</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-5">
+                        <label class="requiredInput">Bilde</label>
+                    </div>
+                    <div class="col-md-7">
+                        <input type="text" ng-model="ctrl.hero.imageUrl" />
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="buttons">
+                        <button type="button" class="btn btn-secondary col-md-5" ng-click="ctrl.cancelEdit(newHeroForm, $event)">Avbryt</button>
+                        <button type="submit" class="btn btn-primary col-md-5" ng-click="Submit">Lagre</button>
+                    </div>
+                </div>
+
+            </form>
         </div>
-
-        <div class="row">
-            <div class="col-md-5">
-                <label class="requiredInput">Ekte navn</label>
-            </div>
-            <div class="col-md-7">
-                <input heroName="realName" type="text" ng-model="ctrl.hero.realName" ng-minlength="2" required />
-            </div>
+        <div class="col-md-6 heroImg">
+            <img ng-src="{{ctrl.hero.imageUrl}}"/>
         </div>
-
-        <div class="row">
-            <div class="col-md-5">
-                <label class="requiredInput">Høyde (i cm)</label>
-            </div>
-            <div class="col-md-7">
-                <input heroName="height" type="text" ng-model="ctrl.hero.height" required />
-            </div>
-        </div>
-
-        <div class="row">
-            <div class="col-md-5">
-                <label class="requiredInput">Superkrefter og evner</label>
-            </div>
-            <div class="col-md-7">
-                <input heroName="powers" type="text" ng-model="ctrl.hero.powers" ng-minlength="2"/>
-            </div>
-        </div>
-
-        <div class="row">
-            <div class="col-md-5">
-                <label class="requiredInput">Debut i tegneserie</label>
-            </div>
-            <div class="col-md-7">
-                <input heroName="appearanceComic" type="text" ng-model="ctrl.hero.appearanceComic" ng-minlength="2"/>
-            </div>
-        </div>
-
-        <div class="row">
-            <div class="col-md-5">
-                <label class="requiredInput">Debut i film</label>
-            </div>
-            <div class="col-md-7">
-                <input heroName="appearanceMovie" type="text" ng-model="ctrl.hero.appearanceMovie" ng-minlength="2"/>
-            </div>
-        </div>
-
-
-        <div class="row">
-            <div class="col-md-5">
-                <label class="requiredInput">Gruppetilhørighet</label>
-            </div>
-            <div class="col-md-7">
-                <select ng-model="ctrl.hero.groupAffiliation"
-                        ng-options="group for group in ctrl.groups">
-                    <option value="">Velg Gruppetilhørighet</option>
-                </select>
-            </div>
-        </div>
-
-        <div class="row">
-            <div class="col-md-5">
-                <label class="requiredInput">Bilde</label>
-            </div>
-            <div class="col-md-7">
-                <input type="text" ng-model="ctrl.hero.imageUrl" />
-            </div>
-        </div>
-
-        <div class="row">
-            <button type="button" class="btn btn-secondary col-md-4 col-md-offset-4" ng-click="ctrl.cancelEdit(newHeroForm, $event)">Avbryt</button>
-            <button type="submit" class="btn btn-primary col-md-4" ng-click="Submit">Lagre</button>
-        </div>
-
-    </form>
+    </div>
 </div>
 
 

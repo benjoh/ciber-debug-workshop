@@ -55,6 +55,7 @@ body {
 
 .menu {
     background-color: white;
+    height: 60px;
 }
 
 #main {
@@ -62,23 +63,54 @@ body {
     height: 40px;
 }
 
+nav .navbar {
+    margin-bottom:0;
+}
 #mainmenu ul.menu {
     position: relative;
     float: left;
     font-weight: bold;
 }
 
-#mainmenu ul.menu li {
-    display:inline-block;
-    color: rgb(68, 79, 85);
-    line-height: 40px;
-    text-transform: uppercase;
-    font-weight:bold;
-    letter-spacing:0.1em;
-    font-size: 1em;
-    margin-right: 2%;
+#mainmenu ul li {
+     display:inline-block;
+     color: rgb(68, 79, 85);
+     line-height: 40px;
+     text-transform: uppercase;
+     font-weight:bold;
+     letter-spacing:0.1em;
+     font-size: 1em;
+     margin-right: 2%;
+ }
+
+#mainmenu ul li a {
+    color: #444f55;
 }
 
-img {
+.heroSmall img {
     max-height:200px;
+}
+
+#ContentContainer {
+    background: #f5f5f5;
+}
+
+.searchContainer {
+    margin-top:10px;
+}
+
+.container form{
+    margin-top:10px;
+}
+
+.container .row {
+    margin-bottom: 5px;
+}
+
+.container button {
+    margin-right: 15px;
+}
+
+.editPage img {
+    max-height:300px;
 }
