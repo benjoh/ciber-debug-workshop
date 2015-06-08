@@ -1,6 +1,5 @@
 package no.ciber.tutorial.spring_hibernate.domain;
 
-import javax.annotation.Resource;
 import java.util.List;
 
 public class Power {

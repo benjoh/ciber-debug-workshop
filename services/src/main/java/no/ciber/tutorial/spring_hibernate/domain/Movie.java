@@ -1,8 +1,5 @@
 package no.ciber.tutorial.spring_hibernate.domain;
 
-import com.sun.org.apache.xalan.internal.lib.ExsltDatetime;
-import no.ciber.tutorial.spring_hibernate.model.SuperheroModel;
-
 import java.util.List;
 
 public class Movie {

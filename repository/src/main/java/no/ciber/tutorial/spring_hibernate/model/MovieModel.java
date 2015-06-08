@@ -1,7 +1,5 @@
 package no.ciber.tutorial.spring_hibernate.model;
 
-import org.springframework.transaction.annotation.Transactional;
-
 import javax.persistence.*;
 import java.util.List;
 

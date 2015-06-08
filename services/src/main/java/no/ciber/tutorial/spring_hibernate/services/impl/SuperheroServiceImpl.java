@@ -2,12 +2,14 @@ package no.ciber.tutorial.spring_hibernate.services.impl;
 
 import no.ciber.tutorial.spring_hibernate.dao.SuperheroDAO;
 import no.ciber.tutorial.spring_hibernate.domain.Superhero;
-import no.ciber.tutorial.spring_hibernate.model.SuperheroModel;
 import no.ciber.tutorial.spring_hibernate.services.SuperheroService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.*;
+import java.util.Collections;
+import java.util.List;
+import java.util.Optional;
+import java.util.Random;
 
 import static no.ciber.tutorial.spring_hibernate.mapping.SuperheroMapper.*;
 
