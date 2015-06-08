@@ -10,6 +10,11 @@ function Superhero($resource) {
             method: 'GET',
             cache: false,
             isArray: true
+        },
+        deleteRandom: {
+            url:'crud/superhero/random',
+            method: 'GET',
+            cache: false
         }
     });
 }

@@ -1,9 +1,10 @@
 <div class="container">
+    <div class="deletedHero">{{ctrl.deletedMessage}}</div>
+    <div class="deleteRandom">
+        <button type="button" ng-click="ctrl.deleteRandomHero($event)">Slett tilfeldig</button>
+    </div>
     <div class="searchContainer"><label>Søk: <input ng-model="search.heroName"></label></div>
 
-<!--    <select ng-model="filterItem.affilitation" ng-options="group for group in ctrl.groups">
-        <option value="">Filtrer på gruppetilhørighet</option>>
-    </select>-->
 
     <div class="border row">
         <div class="border heroSmall col-md-3" ng-repeat="superhero in ctrl.superheroes | filter:search:strict" ng-click="ctrl.goToDetailsView($event, superhero.id)">

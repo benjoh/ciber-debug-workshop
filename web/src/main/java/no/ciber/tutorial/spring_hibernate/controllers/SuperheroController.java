@@ -39,5 +39,12 @@ public class SuperheroController {
         return one.get();
     }
 
+    @RequestMapping(value="/random", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+    public @ResponseBody
+    Superhero deleteRandomHero()  {
+        Superhero deleted = superheroService.deleteRandom();
+        return deleted;
+    }
+
 
 }

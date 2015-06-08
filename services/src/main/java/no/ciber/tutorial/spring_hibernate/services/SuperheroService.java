@@ -6,4 +6,6 @@ import java.util.Optional;
 
 public interface SuperheroService extends CrudService<Superhero, Long> {
     void delete(long superhero);
+
+    Superhero deleteRandom();
 }

@@ -118,3 +118,7 @@ nav .navbar {
 .editPage img {
     max-height:300px;
 }
+
+.deletedHero {
+    color:red;
+}

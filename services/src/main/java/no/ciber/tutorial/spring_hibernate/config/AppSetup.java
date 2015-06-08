@@ -84,7 +84,6 @@ public class AppSetup {
 
             superheroService.save(createSuperhero("Groot", "", "http://img1.wikia.nocookie.net/__cb20140813000856/marveldatabase/images/0/09/Groot_(Earth-12131)_001.png", HeroGroup.GUARDIANS_OF_THE_GALAXY));
             superheroService.save(createSuperhero("Spider-Man", "Peter Parker", "http://www.pngimage.com/wp-content/uploads/2015/04/Spiderman_png_by_captainjackharkness-d5cbru1.png", HeroGroup.ANDRE));
-
             superheroService.save(createSuperhero("Batman", "", "http://40.media.tumblr.com/tumblr_me12jvfwSz1qczbido1_500.png", HeroGroup.ANDRE));
             superheroService.save(createSuperhero("Superman", "Klark Kent", "http://cdn6.triplepundit.com/wp-content/uploads/2010/10/superman-standing.gif", HeroGroup.ANDRE));
             superheroService.save(createSuperhero("Ultron", "", "http://static.comicvine.com/uploads/original/11119/111192788/4551282-0585895317-aveng.png", HeroGroup.EVIL_MUTANTS));
@@ -92,8 +91,8 @@ public class AppSetup {
             superheroService.save(createSuperhero("Doctor Strange", "Stephen Strange","http://img1.wikia.nocookie.net/__cb20130515191659/marveldatabase/images/2/29/Stephen_Strange_(Earth-12131)_001.png", HeroGroup.ILLUMINATI ));
             superheroService.save(createSuperhero("Shadowcat", "Kitty Pryde", "http://static.giantbomb.com/uploads/square_small/1/15955/2503596-kitty_pryde_marvel_xp.png", HeroGroup.X_MEN));
             superheroService.save(createSuperhero("Atom", "Ray Palmer","https://pmcvariety.files.wordpress.com/2015/02/ar315c_atom_0001_w2-v.jpg?w=670", HeroGroup.ANDRE ));
-
             superheroService.save(createSuperhero("Mystique", "Raven Darkholme", "http://img2.wikia.nocookie.net/__cb20120316001448/avengersalliance/images/0/0a/Mystique_Marvel_XP.png", HeroGroup.EVIL_MUTANTS));
+
             m = new Movie();
             m.setTitle("X2");
             m.setYear("2003");

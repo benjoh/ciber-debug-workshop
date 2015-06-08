@@ -1,10 +1,9 @@
 angular.module('superhelt.controller')
     .controller('SuperheroListController', SuperheroListController);
 
-SuperheroListController.$inject = ['Superhero', '$location', 'SuperheroHelperService'];
+SuperheroListController.$inject = ['Superhero', '$location', '$state', 'SuperheroHelperService'];
 
-function SuperheroListController(Superhero, $location, SuperheroHelperService) {
-    this.message = "I am the superherolist controllah!";
+function SuperheroListController(Superhero, $location, $state, SuperheroHelperService) {
     var self = this;
     this.superheroes = Superhero.queryAll();
 
@@ -14,13 +13,24 @@ function SuperheroListController(Superhero, $location, SuperheroHelperService) {
 
     this.goToDetailsView = function($event, superheroId){
         $event.stopPropagation();
-
         $location.path("/detaljer/" + superheroId);
     };
 
     this.deleteHero = function($event, superhero){
         $event.stopPropagation();
-        superhero.$delete();
+        superhero.$delete(function(){
+            $state.reload();
+        });
+    }
+
+    this.deleteRandomHero = function($event){
+        $event.stopPropagation();
+        var deletedHero = Superhero.deleteRandom();
+
+        deletedHero.$promise.then(function(data){
+            self.deletedMessage = data.heroName + " ble slettet";
+            self.superheroes = Superhero.queryAll();
+        });
     }
 }
 
