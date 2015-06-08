@@ -28,7 +28,7 @@ public final class MovieMapper {
 
     public static List<MovieModel> toMovieModels(List<Movie> movies) {
         List<MovieModel> modelList = new ArrayList<>();
-        movies.forEach(movie -> modelList.add(toMovieModel(movie).get()));
+        if(movies != null) movies.forEach(movie -> modelList.add(toMovieModel(movie).get()));
         return modelList;
     }
 
