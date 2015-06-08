@@ -9,6 +9,8 @@ function CreateSuperheroController(Superhero, SuperheroHelperService, $location)
 
     SuperheroHelperService.getGroupAffiliations().then(function(response){
         self.groups = response.data;
+        console.log(self.groups);
+        self.groups[0].groupName();
     });
 
     this.save = function(form, $event) {

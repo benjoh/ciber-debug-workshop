@@ -1,6 +1,7 @@
 package no.ciber.tutorial.spring_hibernate.model;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name="SUPERHERO")
@@ -16,12 +17,10 @@ public class SuperheroModel {
     private String realName;
     @Column
     private int height;
-    @Column
-    private String firstAppearanceComic;
-    @Column
-    private String firstAppearanceMovie;
-    @Column
-    private String abilities;
+    @ManyToMany
+    private List<MovieModel> movieAppearances;
+    @ManyToMany
+    private List<PowerModel> powers;
 
     @Enumerated(EnumType.STRING)
     private HeroGroup groupAffiliation;
@@ -66,35 +65,27 @@ public class SuperheroModel {
         this.height = height;
     }
 
-    public String getFirstAppearanceComic() {
-        return firstAppearanceComic;
-    }
-
-    public void setFirstAppearanceComic(String firstAppearanceComic) {
-        this.firstAppearanceComic = firstAppearanceComic;
-    }
-
-    public String getFirstAppearanceMovie() {
-        return firstAppearanceMovie;
-    }
-
-    public void setFirstAppearanceMovie(String firstAppearanceMovie) {
-        this.firstAppearanceMovie = firstAppearanceMovie;
-    }
-
-    public String getAbilities() {
-        return abilities;
-    }
-
-    public void setAbilities(String abilities) {
-        this.abilities = abilities;
-    }
-
     public HeroGroup getGroupAffiliation() {
         return groupAffiliation;
     }
 
     public void setGroupAffiliation(HeroGroup groupAffiliation) {
         this.groupAffiliation = groupAffiliation;
+    }
+
+    public List<MovieModel> getMovieAppearances() {
+        return movieAppearances;
+    }
+
+    public void setMovieAppearances(List<MovieModel> movieAppearances) {
+        this.movieAppearances = movieAppearances;
+    }
+
+    public List<PowerModel> getPowers() {
+        return powers;
+    }
+
+    public void setPowers(List<PowerModel> powers) {
+        this.powers = powers;
     }
 }

@@ -2,14 +2,15 @@ package no.ciber.tutorial.spring_hibernate.domain;
 
 import no.ciber.tutorial.spring_hibernate.model.HeroGroup;
 
+import java.util.List;
+
 public class Superhero implements Comparable<Superhero> {
     private Long id;
     private String heroName;
     private String realName;
     private int height;
-    private String appearanceComic;
-    private String appearanceMovie;
-    private String powers;
+    private List<Power> superpowers;
+    private List<Movie> movieAppearances;
     private HeroGroup groupAffiliation;
     private String imageUrl;
 
@@ -43,21 +44,15 @@ public class Superhero implements Comparable<Superhero> {
         return hero;
     }
 
-    public Superhero firstComic(String firstComic) {
+    public Superhero movieAppearances(List<Movie> appearances) {
         Superhero hero = copy();
-        hero.appearanceComic = firstComic;
+        hero.movieAppearances = appearances;
         return hero;
     }
 
-    public Superhero firstMovie(String firstMovie) {
+    public Superhero powers(List<Power> powers) {
         Superhero hero = copy();
-        hero.appearanceMovie = firstMovie;
-        return hero;
-    }
-
-    public Superhero abilities(String abilities) {
-        Superhero hero = copy();
-        hero.powers = abilities;
+        hero.superpowers = powers;
         return hero;
     }
 
@@ -73,9 +68,8 @@ public class Superhero implements Comparable<Superhero> {
         hero.realName = getRealName();
         hero.imageUrl = getImageUrl();
         hero.height = getHeight();
-        hero.appearanceComic = getAppearanceComic();
-        hero.appearanceMovie = getAppearanceMovie();
-        hero.powers = getPowers();
+        hero.movieAppearances = getMovieAppearances();
+        hero.superpowers = getSuperpowers();
         hero.groupAffiliation = getGroupAffiliation();
         return hero;
 
@@ -113,30 +107,6 @@ public class Superhero implements Comparable<Superhero> {
         this.height = height;
     }
 
-    public String getAppearanceComic() {
-        return appearanceComic;
-    }
-
-    public void setAppearanceComic(String appearanceComic) {
-        this.appearanceComic = appearanceComic;
-    }
-
-    public String getAppearanceMovie() {
-        return appearanceMovie;
-    }
-
-    public void setAppearanceMovie(String appearanceMovie) {
-        this.appearanceMovie = appearanceMovie;
-    }
-
-    public String getPowers() {
-        return powers;
-    }
-
-    public void setPowers(String powers) {
-        this.powers = powers;
-    }
-
     public HeroGroup getGroupAffiliation() {
         return groupAffiliation;
     }
@@ -156,5 +126,17 @@ public class Superhero implements Comparable<Superhero> {
     @Override
     public int compareTo(Superhero o) {
         return this.heroName.compareTo(o.getHeroName());
+    }
+
+    public List<Movie> getMovieAppearances() {
+        return movieAppearances;
+    }
+
+    public List<Power> getSuperpowers() {
+        return superpowers;
+    }
+
+    public void setSuperpowers(List<Power> superpowers) {
+        this.superpowers = superpowers;
     }
 }

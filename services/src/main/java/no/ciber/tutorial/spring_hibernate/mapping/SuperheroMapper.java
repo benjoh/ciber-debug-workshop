@@ -7,6 +7,11 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
+import static no.ciber.tutorial.spring_hibernate.mapping.MovieMapper.fromMovies;
+import static no.ciber.tutorial.spring_hibernate.mapping.MovieMapper.toMovieModels;
+import static no.ciber.tutorial.spring_hibernate.mapping.PowerMapper.fromPowerModels;
+import static no.ciber.tutorial.spring_hibernate.mapping.PowerMapper.toPowerModels;
+
 public final class SuperheroMapper {
     private SuperheroMapper() {
     }
@@ -19,16 +24,15 @@ public final class SuperheroMapper {
                 .name(model.getName())
                 .realName(model.getRealName())
                 .height(model.getHeight())
-                .firstComic(model.getFirstAppearanceComic())
-                .firstMovie(model.getFirstAppearanceMovie())
-                .abilities(model.getAbilities())
+                .movieAppearances(fromMovies(model.getMovieAppearances()))
+                .powers(fromPowerModels(model.getPowers()))
                 .group(model.getGroupAffiliation())
                 .imageUrl(model.getImageUrl()));
     }
 
     public static List<Superhero> fromSuperheroModelList(Iterable<SuperheroModel> modelList) {
         List<Superhero> heroes = new ArrayList<>();
-        modelList.forEach(superheroModel -> heroes.add(fromSuperheroModel(superheroModel).get()));
+        if(modelList != null) modelList.forEach(superheroModel -> heroes.add(fromSuperheroModel(superheroModel).get()));
         return heroes;
     }
 
@@ -42,12 +46,10 @@ public final class SuperheroMapper {
         model.setImageUrl(superhero.getImageUrl());
         model.setRealName(superhero.getRealName());
         model.setHeight(superhero.getHeight());
-        model.setFirstAppearanceComic(superhero.getAppearanceComic());
-        model.setFirstAppearanceMovie(superhero.getAppearanceMovie());
-        model.setAbilities(superhero.getPowers());
+        model.setMovieAppearances(toMovieModels(superhero.getMovieAppearances()));
+        model.setPowers(toPowerModels(superhero.getSuperpowers()));
         model.setGroupAffiliation(superhero.getGroupAffiliation());
         return Optional.of(model);
-
     }
 
     public static List<SuperheroModel> toSuperheroModelList(List<Superhero> superheroes) {
