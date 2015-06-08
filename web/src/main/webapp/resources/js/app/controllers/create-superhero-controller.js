@@ -9,13 +9,16 @@ function CreateSuperheroController(Superhero, SuperheroHelperService, $location)
 
     SuperheroHelperService.getGroupAffiliations().then(function(response){
         self.groups = response.data;
-        console.log(self.groups);
-        self.groups[0].groupName();
+    });
+
+    SuperheroHelperService.getMovies().then(function(response){
+       self.movies = response.data;
     });
 
     this.save = function(form, $event) {
         $event.preventDefault();
 
+        console.log(this.hero);
         this.hero.$save(function(data){
             $location.path("/oversikt/")
         });

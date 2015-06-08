@@ -21,8 +21,10 @@ public class DatasourceConfig {
 
     private static final String MODEL_PACKAGE = "no.ciber.tutorial.spring_hibernate.model";
     private static final String DB_DRIVER_CLASS = "org.hsqldb.jdbcDriver";
-/*    private static final String DB_CONNECTION_URL = "jdbc:hsqldb:mem:testdb";*/
+    private static final String DB_CONNECTION_URL = "jdbc:hsqldb:mem:testdb";
+/*
     private static final String DB_CONNECTION_URL = "jdbc:hsqldb:file:data/mydb;shutdown=true;hsqldb.write_delay=false;";
+*/
     private static final String DB_USERNAME = "sa";
     private static final String DB_PASSWORD = "";
 

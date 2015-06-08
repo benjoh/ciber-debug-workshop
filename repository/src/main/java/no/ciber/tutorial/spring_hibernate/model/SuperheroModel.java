@@ -17,10 +17,10 @@ public class SuperheroModel {
     private String realName;
     @Column
     private int height;
-    @ManyToMany
+    @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     private List<MovieModel> movieAppearances;
-    @ManyToMany
-    private List<PowerModel> powers;
+    @Column
+    private String powers;
 
     @Enumerated(EnumType.STRING)
     private HeroGroup groupAffiliation;
@@ -81,11 +81,11 @@ public class SuperheroModel {
         this.movieAppearances = movieAppearances;
     }
 
-    public List<PowerModel> getPowers() {
+    public String getPowers() {
         return powers;
     }
 
-    public void setPowers(List<PowerModel> powers) {
+    public void setPowers(String powers) {
         this.powers = powers;
     }
 }

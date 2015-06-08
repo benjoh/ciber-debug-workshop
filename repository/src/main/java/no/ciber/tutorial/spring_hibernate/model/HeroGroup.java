@@ -9,10 +9,11 @@ public enum HeroGroup {
     ILLUMINATI("Illuminati"),
     INHUMANS("Inhumans"),
     EVIL_MUTANTS("Brotherhood of Evil Mutants"),
-    OTHER("Annnen gruppering");
+    ANDRE("Annnen gruppering");
 
     private String groupName;
-    HeroGroup(String group) {
+
+    private HeroGroup(String group) {
         groupName = group;
     }
 

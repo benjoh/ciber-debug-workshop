@@ -1,4 +1,4 @@
-angular.module('superhelt', ['superhelt.directive', 'superhelt.controller', 'ui.router']).config(['$stateProvider', '$urlRouterProvider',
+angular.module('superhelt', ['superhelt.directive', 'superhelt.controller', 'ui.router', 'isteven-multi-select']).config(['$stateProvider', '$urlRouterProvider',
     function($stateProvider, $urlRouterProvider) {
         $urlRouterProvider.otherwise("/");
 

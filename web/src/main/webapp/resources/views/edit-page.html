@@ -40,22 +40,18 @@
 
                 <div class="row">
                     <div class="col-md-5">
-                        <label class="requiredInput">Debut i tegneserie</label>
+                        <label class="requiredInput">Filmer/serier</label>
                     </div>
                     <div class="col-md-7">
-                        <input heroName="appearanceComic" type="text" ng-model="ctrl.hero.appearanceComic" ng-minlength="2"/>
+                        <isteven-multi-select
+                                input-model="ctrl.movies"
+                                output-model="ctrl.hero.movieAppearances"
+                                button-label="title year"
+                                item-label="title year"
+                                tick-property="ticked">
+                        </isteven-multi-select>
                     </div>
                 </div>
-
-                <div class="row">
-                    <div class="col-md-5">
-                        <label class="requiredInput">Debut i film</label>
-                    </div>
-                    <div class="col-md-7">
-                        <input heroName="appearanceMovie" type="text" ng-model="ctrl.hero.appearanceMovie" ng-minlength="2"/>
-                    </div>
-                </div>
-
 
                 <div class="row">
                     <div class="col-md-5">

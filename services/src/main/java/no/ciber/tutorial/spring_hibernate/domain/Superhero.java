@@ -2,6 +2,7 @@ package no.ciber.tutorial.spring_hibernate.domain;
 
 import no.ciber.tutorial.spring_hibernate.model.HeroGroup;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Superhero implements Comparable<Superhero> {
@@ -9,8 +10,8 @@ public class Superhero implements Comparable<Superhero> {
     private String heroName;
     private String realName;
     private int height;
-    private List<Power> superpowers;
-    private List<Movie> movieAppearances;
+    private String superpowers;
+    private List<Movie> movieAppearances = new ArrayList<>();
     private HeroGroup groupAffiliation;
     private String imageUrl;
 
@@ -50,7 +51,7 @@ public class Superhero implements Comparable<Superhero> {
         return hero;
     }
 
-    public Superhero powers(List<Power> powers) {
+    public Superhero powers(String powers) {
         Superhero hero = copy();
         hero.superpowers = powers;
         return hero;
@@ -132,11 +133,15 @@ public class Superhero implements Comparable<Superhero> {
         return movieAppearances;
     }
 
-    public List<Power> getSuperpowers() {
+    public String getSuperpowers() {
         return superpowers;
     }
 
-    public void setSuperpowers(List<Power> superpowers) {
+    public void setSuperpowers(String superpowers) {
         this.superpowers = superpowers;
+    }
+
+    public void addMovie(Movie m) {
+        movieAppearances.add(m);
     }
 }

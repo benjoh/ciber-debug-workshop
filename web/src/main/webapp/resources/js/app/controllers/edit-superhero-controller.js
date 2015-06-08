@@ -12,11 +12,17 @@ function EditSuperheroController($stateParams, $location, Superhero, SuperheroHe
         self.groups = response.data;
     });
 
-    console.log(this.hero);
+    SuperheroHelperService.getMovies().then(function(response){
+        angular.forEach(response.data, function(movieItem){
+           angular.forEach(self.hero.movieAppearances, function(movie){
+               if(movieItem.title == movie.title) movieItem.ticked = true;
+           });
+        });
+        self.movies = response.data;
+    });
 
     this.save = function(form, $event) {
         $event.preventDefault();
-
         this.hero.$save();
         $location.path("/oversikt/")
     };

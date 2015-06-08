@@ -87,6 +87,10 @@ nav .navbar {
     color: #444f55;
 }
 
+.heroSmall{
+    height: 320px;
+}
+
 .heroSmall img {
     max-height:200px;
 }

@@ -9,8 +9,6 @@ import java.util.Optional;
 
 import static no.ciber.tutorial.spring_hibernate.mapping.MovieMapper.fromMovies;
 import static no.ciber.tutorial.spring_hibernate.mapping.MovieMapper.toMovieModels;
-import static no.ciber.tutorial.spring_hibernate.mapping.PowerMapper.fromPowerModels;
-import static no.ciber.tutorial.spring_hibernate.mapping.PowerMapper.toPowerModels;
 
 public final class SuperheroMapper {
     private SuperheroMapper() {
@@ -25,7 +23,7 @@ public final class SuperheroMapper {
                 .realName(model.getRealName())
                 .height(model.getHeight())
                 .movieAppearances(fromMovies(model.getMovieAppearances()))
-                .powers(fromPowerModels(model.getPowers()))
+                .powers(model.getPowers())
                 .group(model.getGroupAffiliation())
                 .imageUrl(model.getImageUrl()));
     }
@@ -47,7 +45,7 @@ public final class SuperheroMapper {
         model.setRealName(superhero.getRealName());
         model.setHeight(superhero.getHeight());
         model.setMovieAppearances(toMovieModels(superhero.getMovieAppearances()));
-        model.setPowers(toPowerModels(superhero.getSuperpowers()));
+        model.setPowers(superhero.getSuperpowers());
         model.setGroupAffiliation(superhero.getGroupAffiliation());
         return Optional.of(model);
     }

@@ -90,4 +90,8 @@ public class Movie {
         movie.heroes = getHeroes();
         return movie;
     }
+
+    public String getLabel(){
+        return this.title + " ("+this.year+")";
+    }
 }
