@@ -1,0 +1,5 @@
+Start opp applikasjonen og gå til  http://localhost:8080/#/
+
+Trykk på knappen "Legg til X-men". I consolet vil du se en feilmelding. Det kan se ut som at det er en Angular-feil,
+men det er bare et symptom på en annen feil. Finn og fiks feilen!
+Når dette er gjort vil knappen "Legg til X-men" generere 4 nye superhelter og legge dem til i listen nederst.

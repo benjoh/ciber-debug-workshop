@@ -38,8 +38,8 @@ function SuperheroListController(Superhero, $location, $state, SuperheroHelperSe
         xmen[3] = this.createHero("The White Queen", "Emma Frost", "http://vignette3.wikia.nocookie.net/avengersalliance/images/5/5e/Emma_Frost-Modern-iOS.png/revision/latest?cb=20131213003622" );
 
         for(var i = 0; i<xmen.length; i++){
-            xmen[i].$save(function(response) {
-                self.superheroes.push(response);
+            xmen[i].$save(function() {
+                self.superheroes.push(xmen[i]);
             });
         }
     };
