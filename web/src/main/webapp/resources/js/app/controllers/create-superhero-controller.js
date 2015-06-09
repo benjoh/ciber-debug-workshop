@@ -5,7 +5,7 @@ CreateSuperheroController.$inject = ['Superhero', 'SuperheroHelperService', '$lo
 
 function CreateSuperheroController(Superhero, SuperheroHelperService, $location) {
     var self = this;
-    this.hero = new Superhero();
+    var hero = new Superhero();
 
     SuperheroHelperService.getGroupAffiliations().then(function(response){
         self.groups = response.data;
@@ -18,14 +18,14 @@ function CreateSuperheroController(Superhero, SuperheroHelperService, $location)
     this.save = function(form, $event) {
         $event.preventDefault();
 
-        this.hero.$save(function(){
+        hero.$save(function(){
             $location.path("/oversikt/")
         });
     };
 
     this.clearForm = function(form, $event){
         $event.preventDefault();
-        this.hero = new Superhero();
+        hero = new Superhero();
     };
 
 }

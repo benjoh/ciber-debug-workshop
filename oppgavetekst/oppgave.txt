@@ -1,0 +1,5 @@
+Start opp applikasjonen og gå til menypunktet "Opprett Ny". Fyll inn noen av inputfeltene og trykk lagre. En feil oppstår.
+Hvorfor det? Fiks feilen!
+
+Når den overnevnte feilen er fikset, prøv på nytt å opprette en ny superhelt. Når du trykker på lagre vil det igjen oppstå en feil. Hva er det som skjer?
+Fiks feilen! Nå vil du se at superhelten du lagde dukke opp i listen!

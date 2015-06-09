@@ -23,7 +23,7 @@ public class SuperheroController {
         return superheroService.findAll();
     }
 
-    @RequestMapping(method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
+    @RequestMapping(method = RequestMethod.PUT, produces = MediaType.APPLICATION_JSON_VALUE)
     public Superhero save(@RequestParam(value = "id", required = false) Long id, @RequestBody Superhero superhero) throws Exception {
         return superheroService.save(superhero);
     }
