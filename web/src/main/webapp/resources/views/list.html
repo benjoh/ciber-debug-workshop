@@ -1,7 +1,16 @@
 <div class="container">
     <div class="deletedHero">{{ctrl.deletedMessage}}</div>
-    <div class="deleteRandom">
-        <button type="button" ng-click="ctrl.deleteRandomHero($event)">Slett tilfeldig</button>
+
+    <div class="deleteAllInGroup">
+        <select ng-model="ctrl.deleteFromGroup"
+                ng-options="group for group in ctrl.groups">
+            <option value="">Velg Gruppetilhørighet</option>
+        </select>
+        <button type="button" ng-click="ctrl.deleteHeroesInGroup($event)">Slett superhelter i gruppe</button>
+    </div>
+
+    <div class="addXmen">
+        <button type="button" ng-click="ctrl.addXmen($event)">Legg til X-men</button>
     </div>
     <div class="searchContainer"><label>Søk: <input ng-model="search.heroName"></label></div>
 

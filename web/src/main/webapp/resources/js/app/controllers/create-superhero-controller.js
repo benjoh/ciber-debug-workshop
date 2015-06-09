@@ -18,7 +18,7 @@ function CreateSuperheroController(Superhero, SuperheroHelperService, $location)
     this.save = function(form, $event) {
         $event.preventDefault();
 
-        this.hero.$save(function(data){
+        this.hero.$save(function(){
             $location.path("/oversikt/")
         });
     };

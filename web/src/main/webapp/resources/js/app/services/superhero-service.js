@@ -4,17 +4,24 @@ angular.module('superhelt.service')
 Superhero.$inject = ['$resource'];
 
 function Superhero($resource) {
-    return $resource('crud/superhero/', {id:'@id'}, {
+    return $resource('crud/superhero/', {id:'@id', group:'@group'}, {
         queryAll: {
             url: 'crud/superhero/getAll',
             method: 'GET',
             cache: false,
             isArray: true
         },
-        deleteRandom: {
-            url:'crud/superhero/random',
+        update: {
+            method: 'POST'
+        },
+        deleteAllInGroup: {
+            url:'crud/superhero/allInGroup',
             method: 'GET',
-            cache: false
+            params: {
+              group:'@group'
+            },
+            cache: false,
+            isArray: true
         }
     });
 }

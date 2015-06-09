@@ -100,7 +100,7 @@ nav .navbar {
 }
 
 .searchContainer {
-    margin-top:10px;
+    margin-top:15px;
 }
 
 .container form{
@@ -121,4 +121,8 @@ nav .navbar {
 
 .deletedHero {
     color:red;
+}
+
+.deleteAllInGroup, .addXmen {
+    margin-top: 15px;
 }

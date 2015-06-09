@@ -1,6 +1,7 @@
 package no.ciber.tutorial.spring_hibernate.controllers;
 
 import no.ciber.tutorial.spring_hibernate.domain.Superhero;
+import no.ciber.tutorial.spring_hibernate.model.HeroGroup;
 import no.ciber.tutorial.spring_hibernate.services.SuperheroService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
@@ -39,11 +40,16 @@ public class SuperheroController {
         return one.get();
     }
 
-    @RequestMapping(value="/random", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+/*    @RequestMapping(value="/random", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
     public @ResponseBody
     Superhero deleteRandomHero()  {
         Superhero deleted = superheroService.deleteRandom();
         return deleted;
+    }*/
+
+    @RequestMapping(value="/allInGroup", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+    public @ResponseBody List<Superhero> deleteAllInGroup(@RequestParam(value="group") HeroGroup group){
+        return superheroService.deleteAllInGroup(group);
     }
 
 

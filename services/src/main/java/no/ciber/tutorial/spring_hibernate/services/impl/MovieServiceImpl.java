@@ -19,14 +19,8 @@ public class MovieServiceImpl implements MovieService {
     MovieDAO movieDao;
 
     @Override
-    public Movie create(Movie movie) {
-        return fromMovieModel(movieDao.save(toMovieModel(movie).get())).get();
-    }
-
-    @Override
     public Movie save(Movie movie) {
         return fromMovieModel(movieDao.save(toMovieModel(movie).get())).get();
-
     }
 
     @Override

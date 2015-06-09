@@ -2,14 +2,13 @@ package no.ciber.tutorial.spring_hibernate.services.impl;
 
 import no.ciber.tutorial.spring_hibernate.dao.SuperheroDAO;
 import no.ciber.tutorial.spring_hibernate.domain.Superhero;
+import no.ciber.tutorial.spring_hibernate.model.HeroGroup;
+import no.ciber.tutorial.spring_hibernate.model.SuperheroModel;
 import no.ciber.tutorial.spring_hibernate.services.SuperheroService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.Collections;
-import java.util.List;
-import java.util.Optional;
-import java.util.Random;
+import java.util.*;
 
 import static no.ciber.tutorial.spring_hibernate.mapping.SuperheroMapper.*;
 
@@ -19,13 +18,9 @@ public class SuperheroServiceImpl implements SuperheroService {
     private SuperheroDAO superheroDAO;
 
     @Override
-    public Superhero create(Superhero superhero) {
-        return fromSuperheroModel(superheroDAO.save(toSuperheroModel(superhero).get())).get();
-    }
-
-    @Override
     public Superhero save(Superhero superhero) {
-        return fromSuperheroModel(superheroDAO.save(toSuperheroModel(superhero).get())).get();
+        SuperheroModel modelToSave = toSuperheroModel(superhero).get();
+        return fromSuperheroModel(superheroDAO.save(modelToSave)).get();
     }
 
     @Override
@@ -46,21 +41,17 @@ public class SuperheroServiceImpl implements SuperheroService {
     }
 
     @Override
-    public Superhero deleteRandom() {
+    public List<Superhero> deleteAllInGroup(HeroGroup group) {
         List<Superhero> superheros = fromSuperheroModelList(superheroDAO.findAll());
-        int max = superheros.size();
-        int theOne = new Random().nextInt((max-1)+1);
-        int current = 1;
+        List<Superhero> heroCopy = new ArrayList<>(superheros);
 
-        for(Superhero hero : superheros){
-            if(current == theOne){
-                superheros.remove(hero);
+        for(Superhero hero:superheros){
+            if(hero.getGroupAffiliation().equals(group)){
+                heroCopy.remove(hero);
                 superheroDAO.delete(hero.getId());
-                return hero;
             }
-            current++;
         }
 
-        return superheros.get(0);
+        return heroCopy;
     }
 }
