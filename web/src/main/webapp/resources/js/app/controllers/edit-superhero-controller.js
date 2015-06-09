@@ -23,9 +23,9 @@ function EditSuperheroController($stateParams, $location, Superhero, SuperheroHe
 
     this.save = function(form, $event) {
         $event.preventDefault();
-
-        this.hero.$save();
-        $location.path("/oversikt/")
+        this.hero.$update(function(){
+            $location.path("/oversikt/")
+        });
     };
 
     this.cancelEdit = function(form, $event){

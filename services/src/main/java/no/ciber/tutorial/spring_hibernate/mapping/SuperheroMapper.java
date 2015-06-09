@@ -39,7 +39,6 @@ public final class SuperheroMapper {
             return Optional.empty();
         }
         SuperheroModel model = new SuperheroModel();
-        model.setId(superhero.getId());
         model.setName(superhero.getHeroName());
         model.setImageUrl(superhero.getImageUrl());
         model.setRealName(superhero.getRealName());

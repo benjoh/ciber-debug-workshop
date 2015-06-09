@@ -1,0 +1,6 @@
+Start opp applikasjonen og gå til http://localhost:8080/#/
+
+Trykk på eksempelvis bildet til Batman, skriv inn Batmans ekte navn (Bruce Wayne) i det korrekte tekstfeltet og trykk på lagre. 
+Nå har det dukket opp 2 Batman i listen. Hva har skjedd? 
+
+Fiks feilen! 
