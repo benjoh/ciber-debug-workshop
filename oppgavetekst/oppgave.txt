@@ -1,0 +1,6 @@
+Start opp applikasjonen og gå til http://localhost:8080/#/
+
+Trykk på en vilkåerlig superhelt for å editere han/hun. Du vil oppdage at multiselecten for filmer/serier og
+dropdownen for gruppetilhørighet ikke virker.
+
+Hvorfor virker det ikke? Fiks feilen!

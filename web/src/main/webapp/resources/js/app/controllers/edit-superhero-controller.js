@@ -4,21 +4,24 @@ angular.module('superhelt.controller')
 EditSuperheroController.$inject = ['$stateParams', '$location', 'Superhero', 'SuperheroHelperService'];
 
 function EditSuperheroController($stateParams, $location, Superhero, SuperheroHelperService) {
-    var self = this;
     var id = $stateParams.id;
     this.hero = Superhero.get({id:id});
+    this.groups;;
+    this.movies;;
 
     SuperheroHelperService.getGroupAffiliations().then(function(response){
-        self.groups = response.data;
+        this.groups = response.data;
     });
 
     SuperheroHelperService.getMovies().then(function(response){
-        angular.forEach(response.data, function(movieItem){
-           angular.forEach(self.hero.movieAppearances, function(movie){
-               if(movieItem.title == movie.title) movieItem.ticked = true;
-           });
-        });
-        self.movies = response.data;
+        if(this.hero){
+            angular.forEach(response.data, function(movieItem){
+               angular.forEach(this.hero.movieAppearances, function(movie){
+                   if(movieItem.title == movie.title) movieItem.ticked = true;
+               });
+            });
+        }
+        this.movies = response.data;
     });
 
     this.save = function(form, $event) {
