@@ -43,15 +43,14 @@ public class SuperheroServiceImpl implements SuperheroService {
     @Override
     public List<Superhero> deleteAllInGroup(HeroGroup group) {
         List<Superhero> superheros = fromSuperheroModelList(superheroDAO.findAll());
-        List<Superhero> heroCopy = new ArrayList<>(superheros);
 
         for(Superhero hero:superheros){
             if(hero.getGroupAffiliation().equals(group)){
-                heroCopy.remove(hero);
+                superheros.remove(hero);
                 superheroDAO.delete(hero.getId());
             }
         }
 
-        return heroCopy;
+        return superheros;
     }
 }
