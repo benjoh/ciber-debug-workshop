@@ -1,0 +1,5 @@
+Start opp applikasjonen og gå til http://localhost:8080/#/
+
+Det ser du en dropdown. Velg eksempelvis "X_MEN" og trykk på knappen. En feil oppstår. 
+
+Hvorfor det? Fiks feilen! 
