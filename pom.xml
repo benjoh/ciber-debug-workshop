@@ -8,7 +8,7 @@
     <version>1.0-SNAPSHOT</version>
     <packaging>pom</packaging>
 
-    <heroName>spring-hibernate</heroName>
+    <name>spring-hibernate</name>
     <url>http://maven.apache.org</url>
     <modules>
         <module>repository</module>
